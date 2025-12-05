@@ -8,6 +8,7 @@ export default function Footer() {
     { label: "About", href: "/about-us" },
     { label: "Services", href: "/services" },
     { label: "Blog", href: "/blogs" },
+    { label: "Faqs", href: "/faqs" },
     { label: "Terms & Conditions", href: "/terms-and-conditions" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Contact", href: "/contact" },

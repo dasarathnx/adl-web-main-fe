@@ -6,8 +6,14 @@ import Navbar from "@/Components/Navbar/Navbar";
 import PrivacyPolicySection from "@/Components/TermsAndPolicy/policy/PrivacyPolicySection";
 import React from "react";
 import { buildSEO } from "../lib/seo";
+import { getSeo } from "@/lib/api/apis";
 
-export const metadata = buildSEO({
+export async function generateMetadata() {
+  const seo = await getSeo("privacy");
+  
+
+  if (!seo) {
+    return {
   title:
     "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
   description:
@@ -16,7 +22,18 @@ export const metadata = buildSEO({
     "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
   canonical: "https://adlbusinesssolutions.com/privacy-policy",
   type: "article",
-});
+}
+  }
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+    },
+  };
+}
 
 const page = () => {
   return (

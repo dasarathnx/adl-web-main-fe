@@ -1,6 +1,7 @@
 import { buildSEO } from "@/app/lib/seo";
 import { blogs } from "@/Datas/blogs";
 import { visaDetails } from "@/Datas/visaData";
+import { getSeo } from "@/lib/api/apis";
 
 export function generateStaticParams() {
   return visaDetails.map(item => ({
@@ -8,28 +9,39 @@ export function generateStaticParams() {
   }));
 }
 export async function generateMetadata(props) {
-  const params = await props.params;
+      const params = await props.params;
+
   const visa = visaDetails.find(s => s.id === params.id);
 
-  if (!visa) {
-    return buildSEO({
-      title: "Visa Not Found | ADL Business Solutions",
-      description: "This visa does not exist.",
-      canonical: `https://adlbusinesssolutions.com/visa/not-found`
-    });
+  const seo = await getSeo("visa",visa.id);
+  
+
+  if (!seo) {
+    return {
+  title: "UAE Employment Visa Processing | Work Visa UAE | ADL Business Solutions",
+  description:
+    "Fast and reliable UAE employment visa services. Work permit, medical, Emirates ID & residency stamping support by ADL Business Solutions.",
+  keywords:
+    "UAE work visa, Dubai employment visa, UAE labour visa, residency visa UAE",
+  canonical: "https://adlbusinesssolutions.com/freezone-company-setup",
+  type: "article",
+  image: "/assets/images/freezone/uae-freezone-business-setup-service.png",
+    };
   }
 
-  const { seo, id, image } = visa;
-
-  return buildSEO({
+  return {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
-    canonical: `https://adlbusinesssolutions.com/visa/${id}`,
-    type: "article",
-    image: image,
-  });
+    alternates: {
+      canonical: seo.canonical,
+        image: "/assets/images/freezone/uae-freezone-business-setup-service.png",
+
+    },
+  };
 }
+
+
 
 export default function LicenseLayout({ children }) {
   return <>{children}</>;

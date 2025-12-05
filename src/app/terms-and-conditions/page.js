@@ -5,32 +5,48 @@ import Footer from "@/Components/Footer/Footer";
 import Navbar from "@/Components/Navbar/Navbar";
 import PrivacyPolicySection from "@/Components/TermsAndPolicy/policy/PrivacyPolicySection";
 import TermsAndConditionsSection from "@/Components/TermsAndPolicy/Terms/TermsAndConditionsSection";
+import { getSeo } from "@/lib/api/apis";
 import React from "react";
-import { buildSEO } from "../lib/seo";
+export async function generateMetadata() {
+  const seo = await getSeo("terms");
 
-export const metadata = buildSEO({
-  title: "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
-  description:
-    "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
-  keywords:
-    "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
-  canonical: "https://adlbusinesssolutions.com/terms-and-conditions",
-  type: "article",
-});
+
+  if (!seo) {
+    return {
+      title: "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
+      description:
+        "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
+      keywords:
+        "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
+      canonical: "https://adlbusinesssolutions.com/terms-and-conditions",
+      type: "article",
+    }
+  }
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+    },
+  };
+}
+
 
 
 const page = () => {
   return (
     <div>
       <Navbar />
-      <PolicyHeroSection 
-      title={"Terms and Conditions"} 
-      LastUpdationDate={"November 2025"}
+      <PolicyHeroSection
+        title={"Terms and Conditions"}
+        LastUpdationDate={"November 2025"}
       // decription={"ADL Business Solutions simplifies the entire process of company setup in Dubai and across the UAE — from trade licensing to operational compliance."} 
       // buttonText={"Get a Free Consultation"} 
       // url={"#schedule-meeting"} 
       />
-      <TermsAndConditionsSection/>
+      <TermsAndConditionsSection />
       <Footer />
     </div>
   );

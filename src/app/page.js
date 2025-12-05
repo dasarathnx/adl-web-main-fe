@@ -19,17 +19,31 @@ import TestimonialSection from "@/Components/HomePage/Testimonial/Testimonial";
 import ValuesSection from "@/Components/HomePage/ValuesSection/ValuesSection";
 import VisaTypesSection from "@/Components/HomePage/VisaTypes/VisaTypesSection";
 import { buildSEO } from "./lib/seo";
+import { getSeo } from "@/lib/api/apis";
 
 
 
-export const metadata = buildSEO({
-  title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
-  description:
-    "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",
-  keywords:
-    "business setup services uae,business setup services dubai,company formation uae,company formation services uae,business setup consultants dubai,dubai business setup,uae company formation experts,start business in dubai,business setup support dubai,business consulting dubai",
-  canonical: "https://adlbusinesssolutions.com/",
-});
+export async function generateMetadata() {
+  const seo = await getSeo("home");
+  
+
+  if (!seo) {
+    return {
+      title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
+      description: "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",
+      keywords: "business setup services uae,business setup services dubai,company formation uae,company formation services uae,business setup consultants dubai,dubai business setup,uae company formation experts,start business in dubai,business setup support dubai,business consulting dubai",
+    };
+  }
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+    },
+  };
+}
 
 export default function Home() {
   return (

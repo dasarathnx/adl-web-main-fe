@@ -9,10 +9,15 @@ import MainlandWhyChoose from "@/Components/mainlandPage/MainlandWhyChoose";
 import SuggestedBlogs from "@/Components/mainlandPage/SuggestedBlogs";
 import Navbar from "@/Components/Navbar/Navbar";
 import { Blogposts, MainlandFaqs } from "@/Datas/mainlandData";
+import { getSeo } from "@/lib/api/apis";
 import React from "react";
-import { buildSEO } from "../lib/seo";
-export const metadata = buildSEO({
-  title:
+export async function generateMetadata() {
+  const seo = await getSeo("mainland","");
+  
+
+  if (!seo) {
+    return {
+ title:
     "Mainland Company Formation in UAE | Dubai, Abu Dhabi & Sharjah Mainland Setup | ADL Business Solutions",
   description:
     "Start your UAE mainland business with ADL Business Solutions. We offer expert mainland company setup in Dubai, Abu Dhabi, and Sharjah with full licensing, visa, office, and bank account support. 100% ownership options available.",
@@ -20,8 +25,22 @@ export const metadata = buildSEO({
     "UAE mainland license, Dubai mainland company setup, Abu Dhabi LLC formation, Sharjah business license, mainland business setup UAE, corporate services Dubai, ADL Business Solutions, Dubai business setup consultant",
   canonical: "https://adlbusinesssolutions.com/mainland-company-formation-in-uae",
   type: "article",
-  image: "/assets/images/mainland/mainland-company-formation.png", // optional — fallback applies if removed
-});
+  image: "/assets/images/mainland/mainland-company-formation.png", 
+    };
+  }
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+        image: "/assets/images/mainland/mainland-company-formation.png", 
+
+    },
+  };
+}
+
 
 
 const page = () => {

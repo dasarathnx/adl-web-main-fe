@@ -4,17 +4,32 @@ import Footer from "@/Components/Footer/Footer";
 import ScheduleMeeting from "@/Components/HomePage/ScheduleMeeting/ScheduleMeeting";
 import Navbar from "@/Components/Navbar/Navbar";
 import Services from "@/Components/ServicePage/Services";
-import { buildSEO } from "../lib/seo";
-export const metadata = buildSEO({
-  title: "Business Setup in Dubai | Start Your UAE Company with ADL Business Solutions",
+import { getSeo } from "@/lib/api/apis";
+export async function generateMetadata() {
+  const seo = await getSeo("services","Service Page");
+  
+
+  if (!seo) {
+    return {
+     title: "Business Setup in Dubai | Start Your UAE Company with ADL Business Solutions",
   description:
     "Start your business in Dubai with expert guidance from ADL Business Solutions. We handle trade licenses, approvals, and documentation to help you launch your company smoothly in Mainland, Freezone, or Offshore zones.",
   keywords:
     "Business setup in Dubai, UAE company formation, business license Dubai, mainland company setup, freezone business setup, start a company in UAE",
   canonical: "https://adlbusinesssolutions.com/services",
   type: "article",
-});
+    };
+  }
 
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+    },
+  };
+}
 
 export default function Serivces() {
   return (

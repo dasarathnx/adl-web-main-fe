@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
 import Container from "../Common/Container";
+import { gallery } from "@/lib/api/apis";
 
 /* -------------------- Fallback images -------------------- */
 const sampleImages = [
@@ -17,8 +18,9 @@ const sampleImages = [
   "/assets/images/gallery/gallery_cm.png",
   "/assets/images/gallery/gallery_cm.png",
   "/assets/images/gallery/gallery_cm.png",
-  "/assets/images/gallery/gallery_img1.jpg",
-  "/assets/images/gallery/gallery_img2.jpg",
+  "/assets/images/gallery/gallery_cm.png",
+  "/assets/images/gallery/gallery_cm.png",
+  
 ];
 
 /* -------------------- Pattern setup -------------------- */
@@ -158,48 +160,63 @@ function Lightbox({ src, open, onClose }) {
 
 /* -------------------- Main component -------------------- */
 export default function PatternGalleryTopFirst({ images = sampleImages }) {
+  const [galleryImages, setGalleryImages] = useState([]);
+
+  // Fetch API images
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const res = await gallery();
+        setGalleryImages(res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchImages();
+  }, []);
+
   const bp = useBreakpoint();
 
-  // number of columns for top section grid and for masonry columns
+  // number of columns for top section grid
   const columns = bp === "desktop" ? 4 : bp === "tablet" ? 3 : 2;
 
-  // topRows config: how many rows the top area occupies visually
   const topRows = 2;
-  const topSlots = Math.max(Math.min(TOP_PATTERN.length, columns * topRows), columns); // ensure at least one row
+  const topSlots = Math.max(
+    Math.min(TOP_PATTERN.length, columns * topRows),
+    columns
+  );
 
-  // prepare master array (use provided images or fallback)
-  const master = images && images.length ? images.slice() : sampleImages.slice();
+  // ---- COMBINE API IMAGES + DEFAULT IMAGES ----
+  const apiImages = galleryImages.map((item) => item.image);
 
-  // assume new images are appended to the end of the array.
-  // We want the most recent `topSlots` images to show in top area.
-  const topItems = master.slice(-topSlots).reverse(); // reverse so newest is left-to-right
-  const restItems = master.slice(0, Math.max(0, master.length - topSlots));
+  // *** IMPORTANT FIX ***
+  // Reduce sample images dynamically depending on API images count
+  const remainingNeeded = Math.max(0, images.length - apiImages.length);
+  const sampleLimited = images.slice(0, remainingNeeded);
 
-  // map items to types/heights
+  // API images first — sample images only fill empty space
+  const master = [...apiImages, ...sampleLimited];
+
+  // Fill top section first
+  const topItems = master.slice(0, topSlots);
+  const restItems = master.slice(topSlots);
+
+  // Map to tile objects
   const mapToTiles = (arr, startIndex = 0, pattern = PATTERN) =>
     arr.map((src, i) => {
       const type = pattern[(startIndex + i) % pattern.length];
       const height = TILE_HEIGHTS[type]?.[bp] ?? 160;
-      return {
-        src,
-        type,
-        height,
-        label: `${type} ${i + 1}`,
-        index: i,
-      };
+      return { src, type, height, label: `${type} ${i + 1}`, index: i };
     });
 
-  // top area: we want explicit layout that looks like your reference.
   const topTiles = topItems.map((src, i) => {
     const type = TOP_PATTERN[i % TOP_PATTERN.length] || "small";
     const height = TILE_HEIGHTS[type]?.[bp] ?? 160;
     return { src, type, height, label: `${type} top ${i + 1}`, index: i };
   });
 
-  // rest tiles follow the pattern cycle (so pattern repeats)
   const restTiles = mapToTiles(restItems, 0, PATTERN);
 
-  // lightbox
   const [openImg, setOpenImg] = useState(null);
 
   const topGridStyles = {
@@ -242,7 +259,7 @@ export default function PatternGalleryTopFirst({ images = sampleImages }) {
         case 5:
           return { gridColumn: "3 / span 2", gridRow: "3 / span 1" };
         default:
-          return { gridColumn: "auto", gridRow: "auto" };
+          return {};
       }
     } else if (bp === "tablet") {
       switch (i) {
@@ -259,90 +276,83 @@ export default function PatternGalleryTopFirst({ images = sampleImages }) {
         case 5:
           return { gridColumn: "1 / span 3", gridRow: "4 / span 1" };
         default:
-          return { gridColumn: "auto", gridRow: "auto" };
+          return {};
       }
     } else {
-      return { gridColumn: `${(i % 2) + 1} / span 1`, gridRow: `${Math.floor(i / 2) + 1} / span 1` };
+      return {
+        gridColumn: `${(i % 2) + 1} / span 1`,
+        gridRow: `${Math.floor(i / 2) + 1} / span 1`,
+      };
     }
   };
 
   return (
-    <section className=" relative py-8 md:py-16 lg:py-24  min-h-screen">
-      {/* Glowing Blob Left */}
+    <section className="relative py-8 md:py-16 lg:py-24 min-h-screen">
+      {/* left & right background blur */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="
-          absolute w-[246px] h-[499px] 
-          -left-24 top-40 
-          bg-[#376CBC]
-          opacity-30 blur-[100px] 
-          rounded-[60%]
-        "
-        ></div>
+        <div className="absolute w-[246px] h-[499px] -left-24 top-40 bg-[#376CBC] opacity-30 blur-[100px] rounded-[60%]" />
+      </div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-[246px] h-[499px] -right-2 top-40 bg-[#376CBC] opacity-30 blur-[100px] rounded-[60%]" />
       </div>
 
-      {/* Glowing Blob Right */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="
-          absolute w-[246px] h-[499px] 
-          -right-2 top-40 
-          bg-[#376CBC]
-          opacity-30 blur-[100px] 
-          rounded-[60%]
-        "
-        ></div>
-      </div>
       <Container>
         <div className="w-full h-20 md:h-32" />
-        <div className="max-w-7xl ">
-          <header className="text-center mb-8 md:mb-24">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Gallery</h2>
-            <p className="mt-2 text-sm md:text-xl text-slate-300 max-w-2xl mx-auto">
-              Discover our gallery featuring key projects, client moments, and visuals that reflect our quality, creativity,
-              and service standards.
-            </p>
-          </header>
 
-          {/* TOP SECTION (explicit grid) */}
-          <div className="mb-8">
-            <div style={topGridStyles[bp]}>
-              {topTiles.map((t, idx) => {
-                const placement = topPlacement(idx);
-                const style = { ...placement, height: t.height, cursor: "pointer" };
-                return (
-                  <div key={idx} style={style}>
-                    <Tile
-                      src={t.src}
-                      height={t.height}
-                      label={t.label}
-                      index={idx}
-                      onOpen={() => setOpenImg(t.src)}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+        <header className="text-center mb-8 md:mb-24 max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Gallery
+          </h2>
+          <p className="mt-2 text-sm md:text-xl text-slate-300 max-w-2xl mx-auto">
+            Discover our gallery featuring key projects, client moments, and
+            visuals that reflect our quality, creativity, and service standards.
+          </p>
+        </header>
 
-          {/* REST SECTION (masonry columns - no vertical gaps) */}
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
-            {restTiles.map((it, i) => (
-              <Tile
-                key={i}
-                src={it.src}
-                height={it.height}
-                label={it.label}
-                index={i}
-                onOpen={() => setOpenImg(it.src)}
-              />
-            ))}
+        {/* TOP SECTION */}
+        <div className="mb-8">
+          <div style={topGridStyles[bp]}>
+            {topTiles.map((t, idx) => {
+              const placement = topPlacement(idx);
+              const style = { ...placement, height: t.height, cursor: "pointer" };
+              return (
+                <div key={idx} style={style}>
+                  <Tile
+                    src={t.src}
+                    height={t.height}
+                    label={t.label}
+                    index={idx}
+                    onOpen={() => setOpenImg(t.src)}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        <Lightbox src={openImg} open={!!openImg} onClose={() => setOpenImg(null)} />
+        {/* REST SECTION */}
+        <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+          {restTiles.map((it, i) => (
+            <Tile
+              key={i}
+              src={it.src}
+              height={it.height}
+              label={it.label}
+              index={i}
+              onOpen={() => setOpenImg(it.src)}
+            />
+          ))}
+        </div>
+
+        <Lightbox
+          src={openImg}
+          open={!!openImg}
+          onClose={() => setOpenImg(null)}
+        />
+
         <div className="w-full h-20 md:h-32" />
       </Container>
     </section>
   );
 }
+

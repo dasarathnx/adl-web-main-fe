@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Container from "../Common/Container";
+import { contact } from "@/lib/api/apis";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -44,7 +45,7 @@ export default function ContactForm() {
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     const validationErrors = validate();
@@ -68,6 +69,16 @@ Message: ${formData.message}
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappURL, "_blank");
+    const res = await contact(formData)
+    if(res.success){
+      setFormData({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
+    }
   };
 
   return (

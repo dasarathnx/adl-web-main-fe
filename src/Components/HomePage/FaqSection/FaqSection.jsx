@@ -3,12 +3,26 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import Container from "@/Components/Common/Container";
-import { faqs } from "@/Datas/faqs";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { faqs } from "@/lib/api/apis";
 
 export default function FAQSection() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
+  const [faqsData, setFaqdata] = useState([])
+  useEffect(() => {
+    const fetchFaq = async () => {
+      try {
+        const res = await faqs("home")
+        if (res.success) {
+          
+          setFaqdata(res.data)
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchFaq()
+  }, [])
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, margin: "-100px" });
   const controls = useAnimation();
@@ -23,7 +37,7 @@ export default function FAQSection() {
     visible: (i) => ({
       opacity: 1,
       x: 0,
-      transition: { delay: i * 0.1, duration: 1},
+      transition: { delay: i * 0.1, duration: 1 },
     }),
   };
 
@@ -57,7 +71,7 @@ export default function FAQSection() {
 
             {/* LEFT COLUMN */}
             <div className="flex-1 flex flex-col gap-6">
-              {faqs
+              {faqsData
                 .filter((_, i) => i % 2 === 0)
                 .map((faq, index) => (
                   <motion.div
@@ -79,7 +93,7 @@ export default function FAQSection() {
 
             {/* RIGHT COLUMN */}
             <div className="flex-1 flex flex-col gap-6">
-              {faqs
+              {faqsData
                 .filter((_, i) => i % 2 === 1)
                 .map((faq, index) => (
                   <motion.div
@@ -116,16 +130,14 @@ const FAQCard = ({ faq, index, hoveredIndex, setHoveredIndex }) => (
     <div className="w-full flex justify-between items-center text-left p-5 hover:bg-white/5 transition">
       <span className="font-medium text-sm sm:text-base">{faq.question}</span>
       <ChevronDown
-        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
-          hoveredIndex === index ? "rotate-180" : ""
-        }`}
+        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${hoveredIndex === index ? "rotate-180" : ""
+          }`}
       />
     </div>
 
     <div
-      className={`overflow-hidden transition-all duration-500 ease-in-out ${
-        hoveredIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
-      }`}
+      className={`overflow-hidden transition-all duration-500 ease-in-out ${hoveredIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+        }`}
     >
       <div className="px-5 pb-4 text-gray-400 text-sm leading-relaxed">
         {faq.answer}

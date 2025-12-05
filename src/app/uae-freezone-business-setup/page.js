@@ -10,9 +10,15 @@ import FreezoneLicenses from "@/Components/freezonePage/FreezoneLicenses";
 import FreezoneProcessCubes from "@/Components/freezonePage/FreezoneProcessCubes";
 import PricingPackages from "@/Components/freezonePage/PricingPackages";
 import TestimonialSection from "@/Components/freezonePage/TestimonialSection";
+import { getSeo } from "@/lib/api/apis";
 import React from "react";
-import { buildSEO } from "../lib/seo";
-export const metadata = buildSEO({
+export async function generateMetadata() {
+
+  const seo = await getSeo("freezone","uae-freezone-business-setup");
+  
+
+  if (!seo) {
+    return {
   title: "Freezone Company Setup in UAE | 100% Ownership | ADL Business Solutions",
   description:
     "ADL Business Solutions offers Freezone company setup services in Dubai, Abu Dhabi, Sharjah, and across the UAE. Get 100% foreign ownership, zero tax, and quick licensing for your business.",
@@ -21,7 +27,20 @@ export const metadata = buildSEO({
   canonical: "https://adlbusinesssolutions.com/freezone-company-setup",
   type: "article",
   image: "/assets/images/freezone/uae-freezone-business-setup-service.png",
-});
+    };
+  }
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+        image: "/assets/images/freezone/uae-freezone-business-setup-service.png",
+
+    },
+  };
+}
 
 
 const page = () => {

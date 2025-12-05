@@ -3,21 +3,35 @@ import HeroSection from "@/Components/Common/HeroSection";
 import Footer from "@/Components/Footer/Footer";
 import Navbar from "@/Components/Navbar/Navbar";
 import GalleryCollage from "@/Components/galleryPage/GalleryCollage";
+import { getSeo } from "@/lib/api/apis";
 
 import React from "react";
-import { buildSEO } from "../lib/seo";
-export const metadata = buildSEO({
-  title: "Gallery | ADL Business Solutions | Our Work & Achievements",
+export async function generateMetadata() {
+  const seo = await getSeo("gallery");
+  
+
+  if (!seo) {
+    return {
+    title: "Gallery | ADL Business Solutions | Our Work & Achievements",
   description:
     "Explore the ADL Business Solutions gallery showcasing our events, client interactions, business setup achievements, and corporate milestones across the UAE.",
   keywords:
     "ADL Business Solutions gallery, UAE business setup gallery, corporate events UAE, business consultancy images, ADL achievements, Dubai business setup portfolio",
   canonical: "https://adlbusinesssolutions.com/gallery",
   type: "website",
-  image: "/assets/images/gallery/gallery_img1.jpg", // optional — fallback applies if needed
-});
+  image: "/assets/images/gallery/gallery_img1.jpg", 
+    };
+  }
 
-
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: {
+      canonical: seo.canonical,
+    },
+  };
+}
 
 const page = () => {
     return (
