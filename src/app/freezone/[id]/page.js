@@ -13,6 +13,7 @@ import WhyChoose from "@/Components/FreezoneDetailPage/WhyChoose";
 import WhyChooseADL from "@/Components/FreezoneDetailPage/WhyChooseADL";
 import Navbar from "@/Components/Navbar/Navbar";
 import { freezoneDetails } from "@/Datas/freezoneDetails";
+import { object } from "framer-motion/client";
 import { useParams } from "next/navigation";
 
 export default function page() {
