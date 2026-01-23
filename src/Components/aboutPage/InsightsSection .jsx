@@ -109,7 +109,7 @@ const InsightsSection = () => {
               <motion.div variants={lineVariants} className="flex justify-start pb-4">
                 <div className="h-px bg-[#E9C05F] w-full" />
               </motion.div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white">100+ Trusted Clients</h3>
+              <h4 className="text-2xl sm:text-3xl font-bold text-white">100+ Trusted Clients</h4>
               <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
                 Trusted by over 100+ satisfied clients who rely on ADL for seamless and transparent
                 business setup solutions.

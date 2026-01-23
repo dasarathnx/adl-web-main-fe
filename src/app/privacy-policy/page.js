@@ -5,7 +5,6 @@ import Footer from "@/Components/Footer/Footer";
 import Navbar from "@/Components/Navbar/Navbar";
 import PrivacyPolicySection from "@/Components/TermsAndPolicy/policy/PrivacyPolicySection";
 import React from "react";
-import { buildSEO } from "../lib/seo";
 import { getSeo } from "@/lib/api/apis";
 
 export async function generateMetadata() {
@@ -15,9 +14,9 @@ export async function generateMetadata() {
   if (!seo) {
     return {
   title:
-    "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
+    "Company Formation in Dubai| ADL | Privacy Policy ",
   description:
-    "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
+    "Learn how ADL Business Solutions collects, uses, and protects your information. Read our privacy policy for company formation and business setup services in Dubai. ",
   keywords:
     "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
   canonical: "https://adlbusinesssolutions.com/privacy-policy",

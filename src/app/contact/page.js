@@ -12,9 +12,9 @@ export async function generateMetadata() {
 
   if (!seo) {
     return {
-  title: "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
+  title: "Contact ADL Business Solutions | Company Setup in Dubai",
   description:
-    "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
+    "Get in touch with ADL Business Solutions, Dubai’s trusted business setup consultants. Contact us today for expert company formation, visa, and PRO support tailored to your needs. ",
   keywords:
     "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
   canonical: "https://adlbusinesssolutions.com/contact",
