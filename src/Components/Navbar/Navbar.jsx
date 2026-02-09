@@ -33,41 +33,41 @@ export default function Navbar() {
     { name: 'contact', label: 'Contact', path: '/contact' },
   ];
 
- const serviceItems = [
-  { name: 'Company Formation', path: '/services/company-formation-dubai' },
-  { name: 'Golden Visa', path: '/services/golden-visa-services-dubai' },
-  { name: 'PRO Services', path: '/services/pro-services-dubai' },
-  { name: 'Local Sponsorship', path: '/services/local-sponsorship-dubai' },
-  { name: 'Visa Services', path: '/services/visa-services-dubai' },
-  { 
-    name: 'ISO Certification & Trademark Registration', 
-    path: '/services/iso-and-trademark-services-dubai' 
-  },
-  { name: 'Virtual Office', path: '/services/virtual-office-dubai' },
-  { name: 'Company Liquidation', path: '/services/company-liquidation-dubai' },
-  { name: 'Document Attestation', path: '/services/document-attestation-dubai' },
-  { name: 'Legal Translation', path: '/services/legal-translation-dubai' },
-  { name: 'Insurance & VAT Services', path: '/services/insurance-vat-services-dubai' },
-  { 
-    name: 'Bank Account Opening', 
-    path: '/services/corporate-bank-account-opening-dubai' 
-  },
-  { name: 'Typing Services', path: '/services/typing-services-dubai' },
-  { 
-    name: 'UAE Government Approvals', 
-    path: '/services/uae-government-approvals-services' 
-  },
-  { 
-    name: 'Medical & Emirates ID Services', 
-    path: '/services/medical-emirates-id-services-dubai' 
-  },
-  { name: 'FREEZONE', path: '/services/freezone-company-setup-dubai' },
-  { name: 'Dubai Court Services', path: '/services/dubai-court-services' },
-  { 
-    name: 'Online MOA & POA Services', 
-    path: '/services/online-moa-poa-services-dubai' 
-  },
-];
+  const serviceItems = [
+    { name: 'Company Formation', path: '/services/company-formation-dubai' },
+    { name: 'Golden Visa', path: '/services/golden-visa-services-dubai' },
+    { name: 'PRO Services', path: '/services/pro-services-dubai' },
+    { name: 'Local Sponsorship', path: '/services/local-sponsorship-dubai' },
+    { name: 'Visa Services', path: '/services/visa-services-dubai' },
+    {
+      name: 'ISO Certification & Trademark Registration',
+      path: '/services/iso-and-trademark-services-dubai'
+    },
+    { name: 'Virtual Office', path: '/services/virtual-office-dubai' },
+    { name: 'Company Liquidation', path: '/services/company-liquidation-dubai' },
+    { name: 'Document Attestation', path: '/services/document-attestation-dubai' },
+    { name: 'Legal Translation', path: '/services/legal-translation-dubai' },
+    { name: 'Insurance & VAT Services', path: '/services/insurance-vat-services-dubai' },
+    {
+      name: 'Bank Account Opening',
+      path: '/services/corporate-bank-account-opening-dubai'
+    },
+    { name: 'Typing Services', path: '/services/typing-services-dubai' },
+    {
+      name: 'UAE Government Approvals',
+      path: '/services/uae-government-approvals-services'
+    },
+    {
+      name: 'Medical & Emirates ID Services',
+      path: '/services/medical-emirates-id-services-dubai'
+    },
+    { name: 'FREEZONE', path: '/services/freezone-company-setup-dubai' },
+    { name: 'Dubai Court Services', path: '/services/dubai-court-services' },
+    {
+      name: 'Online MOA & POA Services',
+      path: '/services/online-moa-poa-services-dubai'
+    },
+  ];
 
 
   const licenseItems = [
@@ -95,6 +95,7 @@ export default function Navbar() {
     ...serviceItems.map(s => ({ name: 'service', path: s.path })),
     ...licenseItems.map(l => ({ name: 'license', path: l.path })),
     ...visaItems.map(v => ({ name: 'visa', path: v.path })),
+    { name: 'freezone', path: '/freezone' },
   ];
 
   // Detect active section without flicker
@@ -120,17 +121,17 @@ export default function Navbar() {
   useEffect(() => {
     const handleClick = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target) &&
-          glassRef.current && !glassRef.current.contains(e.target)) {
+        glassRef.current && !glassRef.current.contains(e.target)) {
         setIsServiceOpen(false);
       }
 
       if (licenseDropdownRef.current && !licenseDropdownRef.current.contains(e.target) &&
-          glassRef.current && !glassRef.current.contains(e.target)) {
+        glassRef.current && !glassRef.current.contains(e.target)) {
         setIsLicenseOpen(false);
       }
 
       if (visaDropdownRef.current && !visaDropdownRef.current.contains(e.target) &&
-          glassRef.current && !glassRef.current.contains(e.target)) {
+        glassRef.current && !glassRef.current.contains(e.target)) {
         setIsVisaOpen(false);
       }
     };
@@ -169,11 +170,10 @@ export default function Navbar() {
                       setIsLicenseOpen(item.name === 'license');
                       setIsVisaOpen(item.name === 'visa');
                     }}
-                    className={`relative px-2 2xl:px-6 py-3 rounded-2xl font-normal transition-all duration-300 transform hover:scale-105 active:scale-95 ${
-                      activeSection === item.name
+                    className={`relative px-2 2xl:px-6 py-3 rounded-2xl font-normal transition-all duration-300 transform hover:scale-105 active:scale-95 ${activeSection === item.name
                         ? 'glass-bg'
                         : 'text-white/80 hover:text-white hover:bg-white/5'
-                    }`}
+                      }`}
                   >
                     {item.label}
                     {activeSection === item.name && (
@@ -204,11 +204,10 @@ export default function Navbar() {
                     key={item.name}
                     href={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
-                      activeSection === item.name
+                    className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${activeSection === item.name
                         ? 'text-white glass-bg'
                         : 'text-white/80 hover:text-white hover:bg-white/10'
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </Link>

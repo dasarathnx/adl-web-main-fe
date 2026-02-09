@@ -3359,12 +3359,12 @@ export const serviceDetails = [
         image: "/assets/images/service-details/blogs/business-registration-dubai-2025.jpg"
       }
     ]
-    ,cta:{
-  title:"Form Your Company in Dubai — The Smart Way",
-  description:"Partner with ADL Business Solutions for a fast, compliant, and transparent company formation process in the UAE.",
-  buttonText:"Start Your Formation Today",
-  button1Url:"/"
-}
+    , cta: {
+      title: "Form Your Company in Dubai — The Smart Way",
+      description: "Partner with ADL Business Solutions for a fast, compliant, and transparent company formation process in the UAE.",
+      buttonText: "Start Your Formation Today",
+      button1Url: "/"
+    }
 
 
 
@@ -3437,7 +3437,7 @@ export const serviceDetails = [
         },
         {
           id: 3,
-          title:"Professionals",
+          title: "Professionals",
           description:
             "Doctors, engineers, researchers, and skilled experts with verified qualifications and employment."
         },
@@ -3531,12 +3531,12 @@ export const serviceDetails = [
         image: "/assets/images/service-details/blogs/golden-visa/golden-visa-vs-investor-visa.jpg"
       }
     ],
-    cta:{
-  title:"Your UAE Golden Visa Journey Starts Here",
-  description:"Let ADL Business Solutions handle your application from start to finish — ensuring a smooth, quick, and stress-free approval process.",
-  buttonText:"Apply for Your Golden Visa",
-  button1Url:"/"
-}
+    cta: {
+      title: "Your UAE Golden Visa Journey Starts Here",
+      description: "Let ADL Business Solutions handle your application from start to finish — ensuring a smooth, quick, and stress-free approval process.",
+      buttonText: "Apply for Your Golden Visa",
+      button1Url: "/"
+    }
 
 
 
@@ -3703,13 +3703,13 @@ export const serviceDetails = [
         image: "/assets/images/service-details/blogs/pro-services/dubai-visa-processing-checklist.jpg"
       }
     ]
-,
-cta:{
-  title:"Simplify Your Government Work with ADL PRO Services",
-  description:"Our experienced PRO team ensures your business runs smoothly by handling every legal and administrative task on your behalf.",
-  buttonText:"Get PRO Support Now",
-  button1Url:"/"
-}
+    ,
+    cta: {
+      title: "Simplify Your Government Work with ADL PRO Services",
+      description: "Our experienced PRO team ensures your business runs smoothly by handling every legal and administrative task on your behalf.",
+      buttonText: "Get PRO Support Now",
+      button1Url: "/"
+    }
 
 
   },
@@ -3876,12 +3876,12 @@ cta:{
       }
     ]
 
-,cta:{
-  title:"Start Your Mainland Business with a Trusted Local Sponsor",
-  description:"ADL Business Solutions ensures 100% transparency, legal safety, and a secure partnership with verified Emirati sponsors.",
-  buttonText:"Find My Sponsor Now",
-  button1Url:"/"
-}
+    , cta: {
+      title: "Start Your Mainland Business with a Trusted Local Sponsor",
+      description: "ADL Business Solutions ensures 100% transparency, legal safety, and a secure partnership with verified Emirati sponsors.",
+      buttonText: "Find My Sponsor Now",
+      button1Url: "/"
+    }
 
   },
   {
@@ -4042,12 +4042,12 @@ cta:{
         image: "/assets/images/service-details/blogs/visa/emirates-id-medical-tests-guide.jpg"
       }
     ],
-    cta:{
-  title:"Secure Your UAE Visa Quickly and Compliantly",
-  description:"Partner with ADL Business Solutions to handle your visa and Emirates ID applications efficiently, without delays or errors.",
-  buttonText:"Apply for Your UAE Visa",
-  button1Url:"/"
-}
+    cta: {
+      title: "Secure Your UAE Visa Quickly and Compliantly",
+      description: "Partner with ADL Business Solutions to handle your visa and Emirates ID applications efficiently, without delays or errors.",
+      buttonText: "Apply for Your UAE Visa",
+      button1Url: "/"
+    }
 
 
   },
@@ -4213,12 +4213,12 @@ cta:{
         image: "/assets/images/service-details/blogs/iso/iso-certification-benefits-smes.jpg"
       }
     ],
-    cta:{
-  title:"Achieve Compliance & Protect Your Brand with ADL",
-  description:"Partner with ADL Business Solutions for ISO certification and trademark registration — ensuring quality standards, legal protection, and business credibility.",
-  buttonText:"Get ISO & Trademark Services",
-  button1Url:"/"
-}
+    cta: {
+      title: "Achieve Compliance & Protect Your Brand with ADL",
+      description: "Partner with ADL Business Solutions for ISO certification and trademark registration — ensuring quality standards, legal protection, and business credibility.",
+      buttonText: "Get ISO & Trademark Services",
+      button1Url: "/"
+    }
 
 
 
@@ -4393,13 +4393,13 @@ cta:{
         image: "/assets/images/service-details/blogs/company-liquation/company-liquidation-checklist-uae.jpg"
       }
     ]
-,
-cta:{
-  title:"Close Your Company in Dubai Safely and Efficiently",
-  description:"ADL Business Solutions ensures a smooth, compliant, and worry-free company liquidation process from start to finish.",
-  buttonText:"Start Liquidation Process",
-  button1Url:"/"
-}
+    ,
+    cta: {
+      title: "Close Your Company in Dubai Safely and Efficiently",
+      description: "ADL Business Solutions ensures a smooth, compliant, and worry-free company liquidation process from start to finish.",
+      buttonText: "Start Liquidation Process",
+      button1Url: "/"
+    }
 
 
 
@@ -4580,12 +4580,12 @@ cta:{
         image: "/assets/images/service-details/blogs/document-attestation/How ADL Simplifies Corporate Document Attestation in Dubai.jpg"
       }
     ]
-,cta:{
-  title:"Get Your Documents Attested Quickly and Securely",
-  description:"Partner with ADL Business Solutions for fast, reliable, and fully compliant document attestation services in Dubai and the UAE.",
-  buttonText:"Start Document Attestation",
-  button1Url:"/"
-}
+    , cta: {
+      title: "Get Your Documents Attested Quickly and Securely",
+      description: "Partner with ADL Business Solutions for fast, reliable, and fully compliant document attestation services in Dubai and the UAE.",
+      buttonText: "Start Document Attestation",
+      button1Url: "/"
+    }
 
 
 
@@ -4734,44 +4734,44 @@ cta:{
       }
     ],
 
-  blogs: [
-  {
-    id: "certified-legal-translation-dubai",
-    title: "Certified Legal Translation Services in Dubai Explained",
-    url: "/blog/certified-legal-translation-services-in-dubai-explained",
-    image: "/assets/images/service-details/blogs/legal-translation/Certified Legal Translation Services in Dubai Explained.jpg"
-  },
-  {
-    id: "importance-legal-translation-uae-contracts",
-    title: "Why Accurate Legal Translation is Crucial for UAE Contracts",
-    url: "/blog/why-accurate-legal-translation-is-crucial-for-uae-contracts",
-    image: "/assets/images/service-details/blogs/legal-translation/Why Accurate Legal Translation is Crucial for UAE Contracts.jpg"
-  },
-  {
-    id: "translate-documents-uae-government",
-    title: "Step-by-Step Guide to Translating Documents for UAE Government",
-    url: "/blog/step-by-step-guide-to-translating-documents-for-uae-government",
-    image: "/assets/images/service-details/blogs/legal-translation/Step-by-Step Guide to Translating Documents for UAE Government.jpg"
-  },
-  {
-    id: "legal-translation-mistakes-uae",
-    title: "Top Mistakes to Avoid in Legal Document Translation",
-    url: "/blog/top-mistakes-to-avoid-in-legal-document-translation",
-    image: "/assets/images/service-details/blogs/legal-translation/Top Mistakes to Avoid in Legal Document Translation.jpg"
-  },
-  {
-    id: "adl-legal-translation-compliance",
-    title: "How ADL Ensures Compliance in Legal Translation Services",
-    url: "/blog/how-adl-ensures-compliance-in-legal-translation-services",
-    image: "/assets/images/service-details/blogs/legal-translation/How ADL Ensures Compliance in Legal Translation Services  on this topic_.jpg"
-  }
-],
-cta:{
-  title:"Professional Legal Translation for Accurate and Official Documents",
-  description:"Trust ADL Business Solutions for certified, precise, and legally recognized translations for all your legal documents in Dubai and the UAE.",
-  buttonText:"Get Your Documents Translated",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "certified-legal-translation-dubai",
+        title: "Certified Legal Translation Services in Dubai Explained",
+        url: "/blog/certified-legal-translation-services-in-dubai-explained",
+        image: "/assets/images/service-details/blogs/legal-translation/Certified Legal Translation Services in Dubai Explained.jpg"
+      },
+      {
+        id: "importance-legal-translation-uae-contracts",
+        title: "Why Accurate Legal Translation is Crucial for UAE Contracts",
+        url: "/blog/why-accurate-legal-translation-is-crucial-for-uae-contracts",
+        image: "/assets/images/service-details/blogs/legal-translation/Why Accurate Legal Translation is Crucial for UAE Contracts.jpg"
+      },
+      {
+        id: "translate-documents-uae-government",
+        title: "Step-by-Step Guide to Translating Documents for UAE Government",
+        url: "/blog/step-by-step-guide-to-translating-documents-for-uae-government",
+        image: "/assets/images/service-details/blogs/legal-translation/Step-by-Step Guide to Translating Documents for UAE Government.jpg"
+      },
+      {
+        id: "legal-translation-mistakes-uae",
+        title: "Top Mistakes to Avoid in Legal Document Translation",
+        url: "/blog/top-mistakes-to-avoid-in-legal-document-translation",
+        image: "/assets/images/service-details/blogs/legal-translation/Top Mistakes to Avoid in Legal Document Translation.jpg"
+      },
+      {
+        id: "adl-legal-translation-compliance",
+        title: "How ADL Ensures Compliance in Legal Translation Services",
+        url: "/blog/how-adl-ensures-compliance-in-legal-translation-services",
+        image: "/assets/images/service-details/blogs/legal-translation/How ADL Ensures Compliance in Legal Translation Services  on this topic_.jpg"
+      }
+    ],
+    cta: {
+      title: "Professional Legal Translation for Accurate and Official Documents",
+      description: "Trust ADL Business Solutions for certified, precise, and legally recognized translations for all your legal documents in Dubai and the UAE.",
+      buttonText: "Get Your Documents Translated",
+      button1Url: "/"
+    }
 
 
 
@@ -4921,44 +4921,44 @@ cta:{
     ],
 
 
-  blogs: [
-  {
-    id: "complete-guide-to-vat-registration-and-compliance-in-dubai",
-    title: "Complete Guide to VAT Registration and Compliance in Dubai",
-    url: "/blog/complete-guide-to-vat-registration-and-compliance-in-dubai",
-    image: "/assets/images/service-details/blogs/vat-services/Complete Guide to VAT Registration and Compliance in Dubai.jpg"
-  },
-  {
-    id: "top-insurance-plans-for-businesses-in-the-uae",
-    title: "Top Insurance Plans for Businesses in the UAE",
-    url: "/blog/top-insurance-plans-for-businesses-in-the-uae",
-    image: "/assets/images/service-details/blogs/vat-services/Top Insurance Plans for Businesses in the UAE.jpg"
-  },
-  {
-    id: "how-to-avoid-vat-penalties-in-dubai",
-    title: "How to Avoid VAT Penalties in Dubai",
-    url: "/blog/how-to-avoid-vat-penalties-in-dubai",
-    image: "/assets/images/service-details/blogs/vat-services/How to Avoid VAT Penalties in Dubai.jpg"
-  },
-  {
-    id: "corporate-vs-personal-insurance-choosing-the-right-coverage",
-    title: "Corporate vs Personal Insurance – Choosing the Right Coverage",
-    url: "/blog/corporate-vs-personal-insurance-choosing-the-right-coverage",
-    image: "/assets/images/service-details/blogs/vat-services/Corporate vs Personal Insurance – Choosing the Right Coverage.jpg"
-  },
-  {
-    id: "benefits-of-outsourcing-vat-and-insurance-management-to-experts",
-    title: "Benefits of Outsourcing VAT & Insurance Management to Experts",
-    url: "/blog/benefits-of-outsourcing-vat-and-insurance-management-to-experts",
-    image: "/assets/images/service-details/blogs/vat-services/Benefits of Outsourcing VAT & Insurance Management to Experts.jpg"
-  }
-],
-cta:{
-  title:"Secure Your Business and Financial Compliance with ADL",
-  description:"ADL Business Solutions ensures your insurance and VAT needs are met efficiently, legally, and reliably, giving you peace of mind in Dubai and the UAE.",
-  buttonText:"Get Insurance & VAT Services",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "complete-guide-to-vat-registration-and-compliance-in-dubai",
+        title: "Complete Guide to VAT Registration and Compliance in Dubai",
+        url: "/blog/complete-guide-to-vat-registration-and-compliance-in-dubai",
+        image: "/assets/images/service-details/blogs/vat-services/Complete Guide to VAT Registration and Compliance in Dubai.jpg"
+      },
+      {
+        id: "top-insurance-plans-for-businesses-in-the-uae",
+        title: "Top Insurance Plans for Businesses in the UAE",
+        url: "/blog/top-insurance-plans-for-businesses-in-the-uae",
+        image: "/assets/images/service-details/blogs/vat-services/Top Insurance Plans for Businesses in the UAE.jpg"
+      },
+      {
+        id: "how-to-avoid-vat-penalties-in-dubai",
+        title: "How to Avoid VAT Penalties in Dubai",
+        url: "/blog/how-to-avoid-vat-penalties-in-dubai",
+        image: "/assets/images/service-details/blogs/vat-services/How to Avoid VAT Penalties in Dubai.jpg"
+      },
+      {
+        id: "corporate-vs-personal-insurance-choosing-the-right-coverage",
+        title: "Corporate vs Personal Insurance – Choosing the Right Coverage",
+        url: "/blog/corporate-vs-personal-insurance-choosing-the-right-coverage",
+        image: "/assets/images/service-details/blogs/vat-services/Corporate vs Personal Insurance – Choosing the Right Coverage.jpg"
+      },
+      {
+        id: "benefits-of-outsourcing-vat-and-insurance-management-to-experts",
+        title: "Benefits of Outsourcing VAT & Insurance Management to Experts",
+        url: "/blog/benefits-of-outsourcing-vat-and-insurance-management-to-experts",
+        image: "/assets/images/service-details/blogs/vat-services/Benefits of Outsourcing VAT & Insurance Management to Experts.jpg"
+      }
+    ],
+    cta: {
+      title: "Secure Your Business and Financial Compliance with ADL",
+      description: "ADL Business Solutions ensures your insurance and VAT needs are met efficiently, legally, and reliably, giving you peace of mind in Dubai and the UAE.",
+      buttonText: "Get Insurance & VAT Services",
+      button1Url: "/"
+    }
 
 
 
@@ -5106,44 +5106,44 @@ cta:{
       }
     ],
 
-  blogs: [
-  {
-    id: "corporate-bank-account-opening-dubai",
-    title: "Step-by-Step Guide to Corporate Bank Account Opening in Dubai",
-    url: "/blog/step-by-step-guide-to-corporate-bank-account-opening-in-dubai",
-    image: "/assets/images/service-details/blogs/bank-services/Corporate Banking for New Companies in Dubai.jpg"
-  },
-  {
-    id: "best-banks-business-accounts-uae",
-    title: "Top Banks for Business Accounts in the UAE",
-    url: "/blog/top-banks-for-business-accounts-in-the-uae",
-    image: "/assets/images/service-details/blogs/bank-services/Top Banks for Business Accounts in the UAE.jpg"
-  },
-  {
-    id: "corporate-banking-challenges-uae",
-    title: "Common Challenges in UAE Corporate Banking and How to Avoid Them",
-    url: "/blog/common-challenges-in-uae-corporate-banking-and-how-to-avoid-them",
-    image: "/assets/images/service-details/blogs/bank-services/Common Challenges in UAE Corporate Banking and How to Avoid Them.jpg"
-  },
-  {
-    id: "multi-currency-accounts-uae",
-    title: "Multi-Currency Accounts for UAE Businesses Explained",
-    url: "/blog/multi-currency-accounts-for-uae-businesses-explained",
-    image: "/assets/images/service-details/blogs/bank-services/Multi-Currency Accounts for UAE Businesses Explained.jpg"
-  },
-  {
-    id: "adl-corporate-banking-dubai",
-    title: "How ADL Simplifies Corporate Banking for New Companies in Dubai",
-    url: "/blog/how-adl-simplifies-corporate-banking-for-new-companies-in-dubai",
-    image: "/assets/images/service-details/blogs/bank-services/Step-by-Step Guide to Corporate Bank Account Opening in Dubai.jpg"
-  }
-],
-cta:{
-  title:"Open Your Corporate Bank Account in Dubai Easily with ADL",
-  description:"ADL Business Solutions provides end-to-end guidance for corporate bank account setup, ensuring compliance, efficiency, and smooth banking operations.",
-  buttonText:"Open Your Account Now",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "corporate-bank-account-opening-dubai",
+        title: "Step-by-Step Guide to Corporate Bank Account Opening in Dubai",
+        url: "/blog/step-by-step-guide-to-corporate-bank-account-opening-in-dubai",
+        image: "/assets/images/service-details/blogs/bank-services/Corporate Banking for New Companies in Dubai.jpg"
+      },
+      {
+        id: "best-banks-business-accounts-uae",
+        title: "Top Banks for Business Accounts in the UAE",
+        url: "/blog/top-banks-for-business-accounts-in-the-uae",
+        image: "/assets/images/service-details/blogs/bank-services/Top Banks for Business Accounts in the UAE.jpg"
+      },
+      {
+        id: "corporate-banking-challenges-uae",
+        title: "Common Challenges in UAE Corporate Banking and How to Avoid Them",
+        url: "/blog/common-challenges-in-uae-corporate-banking-and-how-to-avoid-them",
+        image: "/assets/images/service-details/blogs/bank-services/Common Challenges in UAE Corporate Banking and How to Avoid Them.jpg"
+      },
+      {
+        id: "multi-currency-accounts-uae",
+        title: "Multi-Currency Accounts for UAE Businesses Explained",
+        url: "/blog/multi-currency-accounts-for-uae-businesses-explained",
+        image: "/assets/images/service-details/blogs/bank-services/Multi-Currency Accounts for UAE Businesses Explained.jpg"
+      },
+      {
+        id: "adl-corporate-banking-dubai",
+        title: "How ADL Simplifies Corporate Banking for New Companies in Dubai",
+        url: "/blog/how-adl-simplifies-corporate-banking-for-new-companies-in-dubai",
+        image: "/assets/images/service-details/blogs/bank-services/Step-by-Step Guide to Corporate Bank Account Opening in Dubai.jpg"
+      }
+    ],
+    cta: {
+      title: "Open Your Corporate Bank Account in Dubai Easily with ADL",
+      description: "ADL Business Solutions provides end-to-end guidance for corporate bank account setup, ensuring compliance, efficiency, and smooth banking operations.",
+      buttonText: "Open Your Account Now",
+      button1Url: "/"
+    }
 
 
 
@@ -5285,44 +5285,44 @@ cta:{
         answer: "Yes, we provide optional submission support for government and corporate requirements."
       }
     ],
-blogs: [
-  {
-    id: "why-professional-typing-services-save-time-and-errors-in-dubai",
-    title: "Why Professional Typing Services Save Time and Errors in Dubai",
-    url: "/blog/why-professional-typing-services-save-time-and-errors-in-dubai",
-    image: "/assets/images/service-details/blogs/typing-services/Typing Services in Dubai-1.jpg"
-  },
-  {
-    id: "step-by-step-guide-to-typing-visa-and-government-forms-in-uae",
-    title: "Step-by-Step Guide to Typing Visa and Government Forms in UAE",
-    url: "/blog/step-by-step-guide-to-typing-visa-and-government-forms-in-uae",
-    image: "/assets/images/service-details/blogs/typing-services/Typing-Visa-Government-Forms-UAE-2.jpg"
-  },
-  {
-    id: "top-tips-for-accurate-corporate-document-typing",
-    title: "Top Tips for Accurate Corporate Document Typing",
-    url: "/blog/top-tips-for-accurate-corporate-document-typing",
-    image: "/assets/images/service-details/blogs/typing-services/corporate-document-typing-tips-3.png"
-  },
-  {
-    id: "how-adl-streamlines-typing-services-for-businesses",
-    title: "How ADL Streamlines Typing Services for Businesses",
-    url: "/blog/how-adl-streamlines-typing-services-for-businesses",
-    image: "/assets/images/service-details/blogs/typing-services/adl-streamlines-typing-services.jpg"
-  },
-  {
-    id: "common-mistakes-to-avoid-in-document-typing-and-submission",
-    title: "Common Mistakes to Avoid in Document Typing and Submission",
-    url: "/blog/common-mistakes-to-avoid-in-document-typing-and-submission",
-    image: "/assets/images/service-details/blogs/typing-services/Common-Mistakes-in-Document-Typing-5.jpg"
-  }
-],
-cta:{
-  title:"Get Fast and Accurate Typing Services with ADL",
-  description:"ADL Business Solutions ensures all your documents are typed accurately, professionally, and ready for official submission in Dubai and the UAE.",
-  buttonText:"Get Typing Services",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "why-professional-typing-services-save-time-and-errors-in-dubai",
+        title: "Why Professional Typing Services Save Time and Errors in Dubai",
+        url: "/blog/why-professional-typing-services-save-time-and-errors-in-dubai",
+        image: "/assets/images/service-details/blogs/typing-services/Typing Services in Dubai-1.jpg"
+      },
+      {
+        id: "step-by-step-guide-to-typing-visa-and-government-forms-in-uae",
+        title: "Step-by-Step Guide to Typing Visa and Government Forms in UAE",
+        url: "/blog/step-by-step-guide-to-typing-visa-and-government-forms-in-uae",
+        image: "/assets/images/service-details/blogs/typing-services/Typing-Visa-Government-Forms-UAE-2.jpg"
+      },
+      {
+        id: "top-tips-for-accurate-corporate-document-typing",
+        title: "Top Tips for Accurate Corporate Document Typing",
+        url: "/blog/top-tips-for-accurate-corporate-document-typing",
+        image: "/assets/images/service-details/blogs/typing-services/corporate-document-typing-tips-3.png"
+      },
+      {
+        id: "how-adl-streamlines-typing-services-for-businesses",
+        title: "How ADL Streamlines Typing Services for Businesses",
+        url: "/blog/how-adl-streamlines-typing-services-for-businesses",
+        image: "/assets/images/service-details/blogs/typing-services/adl-streamlines-typing-services.jpg"
+      },
+      {
+        id: "common-mistakes-to-avoid-in-document-typing-and-submission",
+        title: "Common Mistakes to Avoid in Document Typing and Submission",
+        url: "/blog/common-mistakes-to-avoid-in-document-typing-and-submission",
+        image: "/assets/images/service-details/blogs/typing-services/Common-Mistakes-in-Document-Typing-5.jpg"
+      }
+    ],
+    cta: {
+      title: "Get Fast and Accurate Typing Services with ADL",
+      description: "ADL Business Solutions ensures all your documents are typed accurately, professionally, and ready for official submission in Dubai and the UAE.",
+      buttonText: "Get Typing Services",
+      button1Url: "/"
+    }
 
 
 
@@ -5474,44 +5474,44 @@ cta:{
 
 
 
-blogs: [
-  {
-    id: "uae-government-approvals-guide",
-    title: "Complete Guide to UAE Government Approvals for Businesses",
-    url: "/blog/complete-guide-to-uae-government-approvals-for-businesses",
-    image: "/assets/images/service-details/blogs/uae/Government-Approvals-with-Expert-Guidance-3.jpg"
-  },
-  {
-    id: "top-permits-licenses-dubai",
-    title: "Top Permits and Licenses Required in Dubai",
-    url: "/blog/top-permits-and-licenses-required-in-dubai",
-    image: "/assets/images/service-details/blogs/uae/Permits-and-Licenses-Required-Dubai-2.jpg"
-  },
-  {
-    id: "avoid-approval-delays-uae",
-    title: "Avoid Delays in Government Approvals with Expert Guidance",
-    url: "/blog/avoid-delays-in-government-approvals-with-expert-guidance",
-    image: "/assets/images/service-details/blogs/uae/UAE-Government-Approvals-1.jpg"
-  },
-  {
-    id: "freezone-mainland-approvals-process",
-    title: "Step-by-Step Process for Freezone and Mainland Approvals",
-    url: "/blog/step-by-step-process-for-freezone-and-mainland-approvals",
-    image: "/assets/images/service-details/blogs/uae/Process-for-Freezone-and-Mainland-Approvals4.jpg"
-  },
-  {
-    id: "adl-uae-business-compliance",
-    title: "How ADL Simplifies UAE Business Regulatory Compliance",
-    url: "/blog/how-adl-simplifies-uae-business-regulatory-compliance",
-    image: "/assets/images/service-details/blogs/uae/UAE-Business-Regulatory-Compliance-5.png"
-  }
-],
-cta:{
-  title:"Secure All Required UAE Government Approvals with ADL",
-  description:"ADL Business Solutions ensures your business gets timely, compliant, and reliable approvals to operate efficiently in Dubai and across the UAE.",
-  buttonText:"Get Government Approvals",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "uae-government-approvals-guide",
+        title: "Complete Guide to UAE Government Approvals for Businesses",
+        url: "/blog/complete-guide-to-uae-government-approvals-for-businesses",
+        image: "/assets/images/service-details/blogs/uae/Government-Approvals-with-Expert-Guidance-3.jpg"
+      },
+      {
+        id: "top-permits-licenses-dubai",
+        title: "Top Permits and Licenses Required in Dubai",
+        url: "/blog/top-permits-and-licenses-required-in-dubai",
+        image: "/assets/images/service-details/blogs/uae/Permits-and-Licenses-Required-Dubai-2.jpg"
+      },
+      {
+        id: "avoid-approval-delays-uae",
+        title: "Avoid Delays in Government Approvals with Expert Guidance",
+        url: "/blog/avoid-delays-in-government-approvals-with-expert-guidance",
+        image: "/assets/images/service-details/blogs/uae/UAE-Government-Approvals-1.jpg"
+      },
+      {
+        id: "freezone-mainland-approvals-process",
+        title: "Step-by-Step Process for Freezone and Mainland Approvals",
+        url: "/blog/step-by-step-process-for-freezone-and-mainland-approvals",
+        image: "/assets/images/service-details/blogs/uae/Process-for-Freezone-and-Mainland-Approvals4.jpg"
+      },
+      {
+        id: "adl-uae-business-compliance",
+        title: "How ADL Simplifies UAE Business Regulatory Compliance",
+        url: "/blog/how-adl-simplifies-uae-business-regulatory-compliance",
+        image: "/assets/images/service-details/blogs/uae/UAE-Business-Regulatory-Compliance-5.png"
+      }
+    ],
+    cta: {
+      title: "Secure All Required UAE Government Approvals with ADL",
+      description: "ADL Business Solutions ensures your business gets timely, compliant, and reliable approvals to operate efficiently in Dubai and across the UAE.",
+      buttonText: "Get Government Approvals",
+      button1Url: "/"
+    }
 
 
 
@@ -5667,44 +5667,44 @@ cta:{
 
 
 
-   blogs: [
-  {
-    id: "emirates-id-registration-dubai",
-    title: "Step-by-Step Guide to Emirates ID Registration in Dubai",
-    url: "/blog/step-by-step-guide-to-emirates-id-registration-in-dubai",
-    image: "/assets/images/service-details/blogs/medical/Emirates-ID-Registration-in-Dubai-1.jpg"
-  },
-  {
-    id: "uae-medical-fitness-test-guide",
-    title: "Medical Fitness Tests for UAE Residency: What You Need to Know",
-    url: "/blog/medical-fitness-tests-for-uae-residency-what-you-need-to-know",
-    image: "/assets/images/service-details/blogs/medical/Medical-Fitness-Tests -UAE-2.jpg"
-  },
-  {
-    id: "family-emirates-id-applications",
-    title: "Family Emirates ID Applications Made Easy",
-    url: "/blog/family-emirates-id-applications-made-easy",
-    image: "/assets/images/service-details/blogs/medical/Emirates-ID-Processing-uae-3.jpg"
-  },
-  {
-    id: "avoid-emirates-id-delays",
-    title: "Avoid Delays in Emirates ID Processing with Expert Assistance",
-    url: "/blog/avoid-delays-in-emirates-id-processing-with-expert-assistance",
-    image: "/assets/images/service-details/blogs/medical/family-emirates-id-uae-3.jpg"
-  },
-  {
-    id: "corporate-employee-medical-id-dubai",
-    title: "Corporate Employee Medical & ID Services in Dubai",
-    url: "/blog/corporate-employee-medical-and-id-services-in-dubai",
-    image: "/assets/images/service-details/blogs/medical/Corporate-Employee-Medical-and-ID-Services-Dubai.jpg"
-  }
-],
-cta:{
-  title:"Complete Your Medical & Emirates ID Requirements Smoothly",
-  description:"ADL Business Solutions ensures fast, accurate, and compliant medical and Emirates ID services for residents and businesses in Dubai and the UAE.",
-  buttonText:"Get Medical & Emirates ID Services",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "emirates-id-registration-dubai",
+        title: "Step-by-Step Guide to Emirates ID Registration in Dubai",
+        url: "/blog/step-by-step-guide-to-emirates-id-registration-in-dubai",
+        image: "/assets/images/service-details/blogs/medical/Emirates-ID-Registration-in-Dubai-1.jpg"
+      },
+      {
+        id: "uae-medical-fitness-test-guide",
+        title: "Medical Fitness Tests for UAE Residency: What You Need to Know",
+        url: "/blog/medical-fitness-tests-for-uae-residency-what-you-need-to-know",
+        image: "/assets/images/service-details/blogs/medical/Medical-Fitness-Tests -UAE-2.jpg"
+      },
+      {
+        id: "family-emirates-id-applications",
+        title: "Family Emirates ID Applications Made Easy",
+        url: "/blog/family-emirates-id-applications-made-easy",
+        image: "/assets/images/service-details/blogs/medical/Emirates-ID-Processing-uae-3.jpg"
+      },
+      {
+        id: "avoid-emirates-id-delays",
+        title: "Avoid Delays in Emirates ID Processing with Expert Assistance",
+        url: "/blog/avoid-delays-in-emirates-id-processing-with-expert-assistance",
+        image: "/assets/images/service-details/blogs/medical/family-emirates-id-uae-3.jpg"
+      },
+      {
+        id: "corporate-employee-medical-id-dubai",
+        title: "Corporate Employee Medical & ID Services in Dubai",
+        url: "/blog/corporate-employee-medical-and-id-services-in-dubai",
+        image: "/assets/images/service-details/blogs/medical/Corporate-Employee-Medical-and-ID-Services-Dubai.jpg"
+      }
+    ],
+    cta: {
+      title: "Complete Your Medical & Emirates ID Requirements Smoothly",
+      description: "ADL Business Solutions ensures fast, accurate, and compliant medical and Emirates ID services for residents and businesses in Dubai and the UAE.",
+      buttonText: "Get Medical & Emirates ID Services",
+      button1Url: "/"
+    }
 
 
 
@@ -5857,44 +5857,44 @@ cta:{
     ],
 
 
-  blogs: [
-  {
-    id: "/blog/benefits-of-setting-up-a-freezone-company-in-dubai",
-    title: "Benefits of Setting Up a Freezone Company in Dubai",
-    url: "/blog/benefits-of-setting-up-a-freezone-company-in-dubai",
-    image: "/assets/images/service-details/blogs/freezone/Freezone-Company-Dubai-benefits-1.jpg"
-  },
-  {
-    id: "/step-by-step-freezone-company-formation-guide",
-    title: "Step-by-Step Freezone Company Formation Guide",
-    url: "/blog/step-by-step-freezone-company-formation-guide",
-    image: "/assets/images/service-details/blogs/freezone/company-formation-guide-2.png"
-  },
-  {
-    id: "/top-freezones-for-startups-and-smes-in-dubai",
-    title: "Top Freezones for Startups and SMEs in Dubai",
-    url: "/top-freezones-for-startups-and-smes-in-dubai",
-    image: "/assets/images/service-details/blogs/freezone/top-freezones-for-startups-dubai-3.png"
-  },
-  {
-    id: "/freezone-vs-mainland-company-which-is-right-for-you",
-    title: "Freezone vs Mainland Company: Which is Right for You?",
-    url: "/freezone-vs-mainland-company-which-is-right-for-you",
-    image: "/assets/images/service-details/blogs/freezone/freezone-vs-mainland-4.png"
-  },
-  {
-    id: "/blog/how-adl-simplifies-freezone-business-setup-in-dubai",
-    title: "How ADL Simplifies Freezone Business Setup in Dubai",
-    url: "/blog/how-adl-simplifies-freezone-business-setup-in-dubai",
-    image: "/assets/images/service-details/blogs/freezone/freezone-business-setup-in-dubai-5.png"
-  }
-],
-cta:{
-  title:"Launch Your Freezone Company in Dubai with ADL",
-  description:"ADL Business Solutions provides expert guidance for efficient, compliant, and fast Freezone company setup to kickstart your UAE business journey.",
-  buttonText:"Start Your Freezone Company",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "/blog/benefits-of-setting-up-a-freezone-company-in-dubai",
+        title: "Benefits of Setting Up a Freezone Company in Dubai",
+        url: "/blog/benefits-of-setting-up-a-freezone-company-in-dubai",
+        image: "/assets/images/service-details/blogs/freezone/Freezone-Company-Dubai-benefits-1.jpg"
+      },
+      {
+        id: "/step-by-step-freezone-company-formation-guide",
+        title: "Step-by-Step Freezone Company Formation Guide",
+        url: "/blog/step-by-step-freezone-company-formation-guide",
+        image: "/assets/images/service-details/blogs/freezone/company-formation-guide-2.png"
+      },
+      {
+        id: "/top-freezones-for-startups-and-smes-in-dubai",
+        title: "Top Freezones for Startups and SMEs in Dubai",
+        url: "/top-freezones-for-startups-and-smes-in-dubai",
+        image: "/assets/images/service-details/blogs/freezone/top-freezones-for-startups-dubai-3.png"
+      },
+      {
+        id: "/freezone-vs-mainland-company-which-is-right-for-you",
+        title: "Freezone vs Mainland Company: Which is Right for You?",
+        url: "/freezone-vs-mainland-company-which-is-right-for-you",
+        image: "/assets/images/service-details/blogs/freezone/freezone-vs-mainland-4.png"
+      },
+      {
+        id: "/blog/how-adl-simplifies-freezone-business-setup-in-dubai",
+        title: "How ADL Simplifies Freezone Business Setup in Dubai",
+        url: "/blog/how-adl-simplifies-freezone-business-setup-in-dubai",
+        image: "/assets/images/service-details/blogs/freezone/freezone-business-setup-in-dubai-5.png"
+      }
+    ],
+    cta: {
+      title: "Launch Your Freezone Company in Dubai with ADL",
+      description: "ADL Business Solutions provides expert guidance for efficient, compliant, and fast Freezone company setup to kickstart your UAE business journey.",
+      buttonText: "Start Your Freezone Company",
+      button1Url: "/"
+    }
 
 
 
@@ -6046,44 +6046,44 @@ cta:{
     ],
 
 
-  blogs: [
-  {
-    id: "step-by-step-guide-to-dubai-court-procedures",
-    title: "Step-by-Step Guide to Dubai Court Procedures",
-    url: "/blog/step-by-step-guide-to-dubai-court-procedures",
-    image: "/assets/images/service-details/blogs/court-services/Step-by-Step Guide to Dubai Court Procedures.jpg"
-  },
-  {
-    id: "common-mistakes-in-legal-document-filing-and-how-to-avoid-them",
-    title: "Common Mistakes in Legal Document Filing and How to Avoid Them",
-    url: "/blog/common-mistakes-in-legal-document-filing-and-how-to-avoid-them",
-    image: "/assets/images/service-details/blogs/court-services/Dubai-Legal-Document-Filing-2.png"
-  },
-  {
-    id: "corporate-legal-support-services-in-dubai",
-    title: "Corporate Legal Support Services in Dubai",
-    url: "/blog/corporate-legal-support-services-in-dubai",
-    image: "/assets/images/service-details/blogs/court-services/corporate-legal-support-in-dubai-3.png"
-  },
-  {
-    id: "how-adl-simplifies-court-procedures-for-individuals-and-businesses",
-    title: "How ADL Simplifies Court Procedures for Individuals and Businesses",
-    url: "/blog/how-adl-simplifies-court-procedures-for-individuals-and-businesses",
-    image: "/assets/images/service-details/blogs/court-services/court-procedures-for-businesses-dubai-4.png"
-  },
-  {
-    id: "understanding-dubai-court-timelines-and-filing-processes",
-    title: "Understanding Dubai Court Timelines and Filing Processes",
-    url: "/blog/understanding-dubai-court-timelines-and-filing-processes",
-    image: "/assets/images/service-details/blogs/court-services/dubai-court-and-filing-procedures-5.png"
-  }
-],
-cta:{
-  title:"Get Professional Dubai Court Services with ADL",
-  description:"ADL Business Solutions ensures accurate, reliable, and efficient court services for all your legal needs in Dubai and the UAE.",
-  buttonText:"Get Court Services",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "step-by-step-guide-to-dubai-court-procedures",
+        title: "Step-by-Step Guide to Dubai Court Procedures",
+        url: "/blog/step-by-step-guide-to-dubai-court-procedures",
+        image: "/assets/images/service-details/blogs/court-services/Step-by-Step Guide to Dubai Court Procedures.jpg"
+      },
+      {
+        id: "common-mistakes-in-legal-document-filing-and-how-to-avoid-them",
+        title: "Common Mistakes in Legal Document Filing and How to Avoid Them",
+        url: "/blog/common-mistakes-in-legal-document-filing-and-how-to-avoid-them",
+        image: "/assets/images/service-details/blogs/court-services/Dubai-Legal-Document-Filing-2.png"
+      },
+      {
+        id: "corporate-legal-support-services-in-dubai",
+        title: "Corporate Legal Support Services in Dubai",
+        url: "/blog/corporate-legal-support-services-in-dubai",
+        image: "/assets/images/service-details/blogs/court-services/corporate-legal-support-in-dubai-3.png"
+      },
+      {
+        id: "how-adl-simplifies-court-procedures-for-individuals-and-businesses",
+        title: "How ADL Simplifies Court Procedures for Individuals and Businesses",
+        url: "/blog/how-adl-simplifies-court-procedures-for-individuals-and-businesses",
+        image: "/assets/images/service-details/blogs/court-services/court-procedures-for-businesses-dubai-4.png"
+      },
+      {
+        id: "understanding-dubai-court-timelines-and-filing-processes",
+        title: "Understanding Dubai Court Timelines and Filing Processes",
+        url: "/blog/understanding-dubai-court-timelines-and-filing-processes",
+        image: "/assets/images/service-details/blogs/court-services/dubai-court-and-filing-procedures-5.png"
+      }
+    ],
+    cta: {
+      title: "Get Professional Dubai Court Services with ADL",
+      description: "ADL Business Solutions ensures accurate, reliable, and efficient court services for all your legal needs in Dubai and the UAE.",
+      buttonText: "Get Court Services",
+      button1Url: "/"
+    }
 
 
 
@@ -6231,44 +6231,44 @@ cta:{
 
 
 
-   blogs: [
-  {
-  id: "online-moa-poa-services-dubai",
-    title: "Step-by-Step Guide to Online MOA & POA Services in Dubai",
-    url: "/blog/step-by-step-guide-to-online-moa-and-poa-services-in-dubai",
-    image: "/assets/images/service-details/blogs/moa/Online-MOA-POA-Services-Dubai-1.png"
-  },
-  {
-  id: "importance-of-moa-poa-uae",
-    title: "Why MOA & POA Are Essential for Businesses in UAE",
-    url: "/blog/why-moa-and-poa-are-essential-for-businesses-in-uae",
-    image: "/assets/images/service-details/blogs/moa/MOA-and-POA-for-Businesses-UAE-2.png"
-  },
-  {
-  id: "digital-notarization-moa-poa-dubai",
-    title: "Digital Notarization: Fast & Secure MOA & POA in Dubai",
-    url: "/blog/digital-notarization-fast-and-secure-moa-and-poa-in-dubai",
-    image: "/assets/images/service-details/blogs/moa/Digital-Notarization-in-Dubai-3.png"
-  },
-  {
-  id: "moa-poa-drafting-mistakes-uae",
-    title: "Common Mistakes to Avoid in MOA & POA Drafting",
-    url: "/blog/common-mistakes-to-avoid-in-moa-and-poa-drafting",
-    image: "/assets/images/service-details/blogs/moa/MOA-and-POA-Drafting-dubai-4.png"
-  },
-  {
-  id: "adl-online-moa-poa-services",
-    title: "How ADL Simplifies Online MOA & POA Services for Corporates",
-    url: "/blog/how-adl-simplifies-online-moa-and-poa-services-for-corporates",
-    image: "/assets/images/service-details/blogs/moa/Online-MOA-and-POA-for-Corporates-uae5.png"
-  }
-],
-cta:{
-  title:"Get Your MOA & POA Documents Online with ADL",
-  description:"ADL Business Solutions ensures fast, secure, and legally compliant online MOA and POA services for individuals and businesses in Dubai and the UAE.",
-  buttonText:"Get MOA & POA Services",
-  button1Url:"/"
-}
+    blogs: [
+      {
+        id: "online-moa-poa-services-dubai",
+        title: "Step-by-Step Guide to Online MOA & POA Services in Dubai",
+        url: "/blog/step-by-step-guide-to-online-moa-and-poa-services-in-dubai",
+        image: "/assets/images/service-details/blogs/moa/Online-MOA-POA-Services-Dubai-1.png"
+      },
+      {
+        id: "importance-of-moa-poa-uae",
+        title: "Why MOA & POA Are Essential for Businesses in UAE",
+        url: "/blog/why-moa-and-poa-are-essential-for-businesses-in-uae",
+        image: "/assets/images/service-details/blogs/moa/MOA-and-POA-for-Businesses-UAE-2.png"
+      },
+      {
+        id: "digital-notarization-moa-poa-dubai",
+        title: "Digital Notarization: Fast & Secure MOA & POA in Dubai",
+        url: "/blog/digital-notarization-fast-and-secure-moa-and-poa-in-dubai",
+        image: "/assets/images/service-details/blogs/moa/Digital-Notarization-in-Dubai-3.png"
+      },
+      {
+        id: "moa-poa-drafting-mistakes-uae",
+        title: "Common Mistakes to Avoid in MOA & POA Drafting",
+        url: "/blog/common-mistakes-to-avoid-in-moa-and-poa-drafting",
+        image: "/assets/images/service-details/blogs/moa/MOA-and-POA-Drafting-dubai-4.png"
+      },
+      {
+        id: "adl-online-moa-poa-services",
+        title: "How ADL Simplifies Online MOA & POA Services for Corporates",
+        url: "/blog/how-adl-simplifies-online-moa-and-poa-services-for-corporates",
+        image: "/assets/images/service-details/blogs/moa/Online-MOA-and-POA-for-Corporates-uae5.png"
+      }
+    ],
+    cta: {
+      title: "Get Your MOA & POA Documents Online with ADL",
+      description: "ADL Business Solutions ensures fast, secure, and legally compliant online MOA and POA services for individuals and businesses in Dubai and the UAE.",
+      buttonText: "Get MOA & POA Services",
+      button1Url: "/"
+    }
 
 
 
@@ -6440,31 +6440,35 @@ cta:{
 
     blogs: [
       {
-          id: "why-virtual-offices-popular-uae",
+        id: "why-virtual-offices-popular-uae",
 
         title: "Why Virtual Offices Are Becoming Popular in the UAE",
         url: "/blog/why-virtual-offices-are-becoming-popular-in-the-uae",
         image: "/assets/images/service-details/blogs/virtual-office/Virtual-Offices-in-UAE-1.png"
       },
-      {  id: "choose-virtual-office-dubai",
+      {
+        id: "choose-virtual-office-dubai",
 
         title: "How to Choose the Right Virtual Office Package in Dubai",
         url: "/blog/how-to-choose-the-right-virtual-office-package-in-dubai",
         image: "/assets/images/service-details/blogs/virtual-office/Virtual-Office-Package-Dubai-2.png"
       },
-      {  id: "freezone-vs-mainland-virtual-office",
+      {
+        id: "freezone-vs-mainland-virtual-office",
 
         title: "Freezone vs Mainland Virtual Office — Key Differences",
         url: "/blog/freezone-vs-mainland-virtual-office-key-differences",
         image: "/assets/images/service-details/blogs/virtual-office/Freezone-vs-Mainland-Virtual-Office.png"
       },
-      {  id: "benefits-running-virtual-business-uae",
+      {
+        id: "benefits-running-virtual-business-uae",
 
         title: "Top Benefits of Running a UAE Business Virtually",
         url: "/blog/top-benefits-of-running-a-uae-business-virtually",
         image: "/assets/images/service-details/blogs/virtual-office/benefits-of-uae-virtual-business.png"
       },
-      {  id: "virtual-office-business-setup-explained",
+      {
+        id: "virtual-office-business-setup-explained",
 
         title: "Cost-Effective Business Setup: Virtual Office Explained",
         url: "/blog/cost-effective-business-setup-virtual-office-explained",
@@ -6628,11 +6632,11 @@ export const service = [
 ];
 
 export const services = [
-  { id: 1, title: 'Business Setup', description: 'Complete business setup services including licensing, registration, and legal documentation.' },
-  { id: 2, title: 'PRO Services', description: 'Professional PRO services for all government transactions and document processing.' },
-  { id: 3, title: 'Company Formation', description: 'End-to-end company formation services for various business structures in UAE.' },
-  { id: 4, title: 'Visa Services', description: 'Comprehensive visa and immigration assistance for your employees and partners.' },
-  { id: 5, title: 'UAE Government Approvals', description: 'Essential UAE government approvals, permits, and clearances managed efficiently for seamless setup.' },
+  { id: 1, title: 'Company Formation', url: "company-formation-dubai", description: 'End-to-end company formation services for various business structures in UAE.' },
+  { id: 2, title: 'PRO Services', url: "pro-services-dubai", description: 'Professional PRO services for all government transactions and document processing.' },
+  { id: 3, title: 'Dubai Court Services', url: "dubai-court-services", description: "Professional support for court filings, documentation, and legal coordination in Dubai." },
+  { id: 4, title: 'Visa Services', url: "visa-services-dubai", description: 'Comprehensive visa and immigration assistance for your employees and partners.' },
+  { id: 5, title: 'UAE Government Approvals', url: "uae-government-approvals-services", description: 'Essential UAE government approvals, permits, and clearances managed efficiently for seamless setup.' },
 ];
 
 export const businessServices = [

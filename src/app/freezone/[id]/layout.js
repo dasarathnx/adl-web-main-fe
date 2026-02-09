@@ -1,6 +1,8 @@
 import { freezoneDetails } from "@/Datas/freezoneDetails";
 import { getSeo } from "@/lib/api/apis";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export function generateStaticParams() {
   return freezoneDetails.map(item => ({
     id: String(item.id),
@@ -8,8 +10,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
+  const { id } = await params;
   const freezone = freezoneDetails.find(
-    s => String(s.id) === String(params.id)
+    s => String(s.id) === String(id)
   );
 
   // ✅ SAFETY GUARD
@@ -22,8 +25,13 @@ export async function generateMetadata({ params }) {
   }
 
   try {
-    const seo = await getSeo("freezone", freezone.id);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=freezone&innerPage=${freezone.id}`,
+      { cache: "no-store" }
+    );
 
+    const data = await res.json();
+    const seo = data?.data;
     if (!seo) throw new Error("SEO not found");
 
     return {

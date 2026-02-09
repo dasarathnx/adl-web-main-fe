@@ -1,6 +1,7 @@
 import { visaDetails } from "@/Datas/visaData";
 import { getSeo } from "@/lib/api/apis";
-
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export function generateStaticParams() {
   return visaDetails.map(item => ({
     id: String(item.id),
@@ -8,8 +9,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
+  const { id } = await params;
   const visa = visaDetails.find(
-    v => String(v.id) === String(params.id)
+    v => String(v.id) === String(id)
   );
 
   // ✅ SAFETY: visa not found
@@ -22,8 +24,13 @@ export async function generateMetadata({ params }) {
   }
 
   try {
-    const seo = await getSeo("visa", visa.id);
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=visa&innerPage=${visa.id}`,
+      { cache: "no-store" }
+    );
 
+    const data = await res.json();
+    const seo = data?.data;
     if (!seo) throw new Error("SEO not found");
 
     return {

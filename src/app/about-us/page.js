@@ -8,15 +8,21 @@ import WhyUAEParallax from "@/Components/aboutPage/WhyUAEParallax ";
 import HeroSection from "@/Components/Common/HeroSection";
 import InnerBanner from "@/Components/Common/InnerBanner";
 import Footer from "@/Components/Footer/Footer";
-import ScheduleMeeting from "@/Components/HomePage/ScheduleMeeting/ScheduleMeeting";
 import Navbar from "@/Components/Navbar/Navbar";
 import React from "react";
-import { buildSEO } from "../lib/seo";
-import { getSeo } from "@/lib/api/apis";
 
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("about");
-  
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=about`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
+console.log(seo);
 
   if (!seo) {
     return {

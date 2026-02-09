@@ -5,10 +5,16 @@ import ScheduleMeeting from "@/Components/HomePage/ScheduleMeeting/ScheduleMeeti
 import Navbar from "@/Components/Navbar/Navbar";
 import Services from "@/Components/ServicePage/Services";
 import { getSeo } from "@/lib/api/apis";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("services","Service Page");
-  
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=services&innerPage=Service Page`,
+    { cache: "no-store" }
+  );
 
+  const data = await res.json();
+  const seo = data?.data;
   if (!seo) {
     return {
      title: "Business Setup in Dubai | Start Your UAE Company with ADL Business Solutions",
