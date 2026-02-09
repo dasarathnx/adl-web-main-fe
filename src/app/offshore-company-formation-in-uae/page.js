@@ -9,11 +9,16 @@ import OffshoreFormationServices from "@/Components/OffshorePage/OffshoreFormati
 import OffshoreTypes from "@/Components/OffshorePage/OffshoreTypes";
 import WhychooseOffshore from "@/Components/OffshorePage/WhychooseOffshore";
 import React from "react";
-import { buildSEO } from "../lib/seo";
-import { getSeo } from "@/lib/api/apis";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("offshore");
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=offshore`,
+    { cache: "no-store" }
+  );
 
+  const data = await res.json();
+  const seo = data?.data;
 
   if (!seo) {
     return {

@@ -1,7 +1,8 @@
 import BusinessGuideSection from "@/Components/BlogDetailPage/BusinessGuideSection";
 import Footer from "@/Components/Footer/Footer";
 import Navbar from "@/Components/Navbar/Navbar";
-
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 // ✅ 1. BUILD TIME: Generate all static blog pages
 export async function generateStaticParams() {
   try {

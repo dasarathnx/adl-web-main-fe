@@ -70,7 +70,16 @@ export const blogInnerPage = async (subCategory)=>{
         
     }
 }
-
+export const blogsList = async ()=>{
+    try {
+        
+        const res = await axionInstance.get(`/blog/get-blogs-list`)        
+        return res.data.data
+    } catch (error) {
+        console.error(error);
+        
+    }
+}
 export const getHeroSection = async () => {
     try {
         const response = await axionInstance.get(`/herosection/get-herosection`)

@@ -5,16 +5,23 @@ import Footer from "@/Components/Footer/Footer";
 import PartnersSection from "@/Components/HomePage/PartnersSection/PartnersSection";
 import ScheduleMeeting from "@/Components/HomePage/ScheduleMeeting/ScheduleMeeting";
 import Navbar from "@/Components/Navbar/Navbar";
-import { getSeo } from "@/lib/api/apis";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("contact");
-  
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=contact`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
+
 
   if (!seo) {
     return {
-  title: "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
+  title: "Contact ADL Business Solutions | Company Setup in Dubai",
   description:
-    "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
+    "Get in touch with ADL Business Solutions, Dubai’s trusted business setup consultants. Contact us today for expert company formation, visa, and PRO support tailored to your needs. ",
   keywords:
     "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
   canonical: "https://adlbusinesssolutions.com/contact",

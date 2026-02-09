@@ -14,8 +14,16 @@ import SuggestedBlogs from "@/Components/freezonePage/SuggestedBlogs";
 import TestimonialSection from "@/Components/freezonePage/TestimonialSection";
 import { blogInnerPage, faqs, getSeo } from "@/lib/api/apis";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("freezone", "uae-freezone-business-setup");
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=freezone&innerPage=uae-freezone-business-setup`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
 
   if (!seo) {
     return {

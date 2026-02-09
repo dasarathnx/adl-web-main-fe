@@ -8,23 +8,29 @@ import WhyUAEParallax from "@/Components/aboutPage/WhyUAEParallax ";
 import HeroSection from "@/Components/Common/HeroSection";
 import InnerBanner from "@/Components/Common/InnerBanner";
 import Footer from "@/Components/Footer/Footer";
-import ScheduleMeeting from "@/Components/HomePage/ScheduleMeeting/ScheduleMeeting";
 import Navbar from "@/Components/Navbar/Navbar";
 import React from "react";
-import { buildSEO } from "../lib/seo";
-import { getSeo } from "@/lib/api/apis";
 
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("about");
-  
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=about`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
+console.log(seo);
 
   if (!seo) {
     return {
  title: 
- "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
+ "About ADL Business Solutions | Dubai Company Formation Consultants ",
   description:
    
-  "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
+  "Learn about ADL Business Solutions  trusted company formation consultants in Dubai helping entrepreneurs with business setup, licensing & support services. ",
   keywords:
     "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
   canonical: "https://adlbusinesssolutions.com/about-us",

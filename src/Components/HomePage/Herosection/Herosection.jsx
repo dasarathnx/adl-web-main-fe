@@ -62,7 +62,7 @@ const HeroSection = () => {
             <div className="flex justify-center">
               <MainButton
                 text={heroData?.buttonText || "Free Consultation"}
-                url={heroData?.buttonUrl || "#schedule-meeting"}
+                url={heroData?.buttonUrl || "# schedule-meeting"}
               />
             </div>
           </div>

@@ -1,8 +1,14 @@
 import BlogsPageClient from "@/Components/BlogPage/BlogsPageClient";
-import { getSeo } from "@/lib/api/apis";
-
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-  const seo = await getSeo("blog");
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=blog`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
 
   if (!seo) {
     return {

@@ -3,6 +3,8 @@ import "./globals.css";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {
+    metadataBase: new URL("https://adlbusinesssolutions.com"), // 👈 ADD THIS
+
   title: "ADL Business Solutions",
   description:
     "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",

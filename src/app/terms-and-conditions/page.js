@@ -7,15 +7,23 @@ import PrivacyPolicySection from "@/Components/TermsAndPolicy/policy/PrivacyPoli
 import TermsAndConditionsSection from "@/Components/TermsAndPolicy/Terms/TermsAndConditionsSection";
 import { getSeo } from "@/lib/api/apis";
 import React from "react";
-export async function generateMetadata() {
-  const seo = await getSeo("terms");
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export async function generateMetadata() {
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=terms`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
 
   if (!seo) {
     return {
-      title: "Business Setup Consultants in Dubai, UAE | Company Setup | ADL",
+      title: "Terms and Conditions | ADL Business Solutions | Business setup ",
       description:
-        "Find the best business setup consultants in the UAE with ADL Business Solutions. Expert support for company formation, licensing, visas, and complete business setup services.",
+        "Read the Terms and Conditions for using ADL Business Solutions website and services, including company formation, business setup, licensing, and support in Dubai. ",
       keywords:
         "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
       canonical: "https://adlbusinesssolutions.com/terms-and-conditions",

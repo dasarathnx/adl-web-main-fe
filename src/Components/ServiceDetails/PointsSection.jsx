@@ -6,7 +6,7 @@ import Image from 'next/image';
 const PointsSection = ({ title, description, items }) => {
 
 
-    const data = items;
+    const data = items || [];
 
     return (
         <section className="relative py-8 md:py-14 overflow-hidden">

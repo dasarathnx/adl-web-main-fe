@@ -9,8 +9,16 @@ import { blogs } from "@/Datas/blogs";
 import { getSeo } from "@/lib/api/apis";
 
 import React from "react";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-    const seo = await getSeo("faqs");
+   const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=faqs`,
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  const seo = data?.data;
 
 
     if (!seo) {
