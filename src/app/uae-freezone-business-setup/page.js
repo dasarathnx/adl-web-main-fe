@@ -17,7 +17,7 @@ import { blogInnerPage, faqs, getSeo } from "@/lib/api/apis";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-   const res = await fetch(
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=freezone&innerPage=uae-freezone-business-setup`,
     { cache: "no-store" }
   );
@@ -25,31 +25,48 @@ export async function generateMetadata() {
   const data = await res.json();
   const seo = data?.data;
 
-  if (!seo) {
-    return {
-      title: "Freezone Company Setup in UAE | 100% Ownership | ADL Business Solutions",
-      description:
-        "ADL Business Solutions offers Freezone company setup services in Dubai, Abu Dhabi, Sharjah, and across the UAE. Get 100% foreign ownership, zero tax, and quick licensing for your business.",
-      keywords:
-        "UAE Freezone company setup, Dubai Freezone license, business setup in UAE, start business in Freezone, 100% ownership UAE, Freezone consultancy Dubai, ADL Business Solutions",
-      alternates: {
-        canonical: "https://adlbusinesssolutions.com/freezone-company-setup",
-      },
-      openGraph: {
-        images: ["/assets/images/freezone/uae-freezone-business-setup-service.png"],
-      },
-    };
-  }
+  const defaultMeta = {
+    title:
+      "Freezone Company Setup in UAE | 100% Ownership | ADL Business Solutions",
+    description:
+      "ADL Business Solutions offers Freezone company setup services in Dubai, Abu Dhabi, Sharjah, and across the UAE. Get 100% foreign ownership, zero tax, and quick licensing for your business.",
+    keywords:
+      "UAE Freezone company setup, Dubai Freezone license, business setup in UAE, start business in Freezone, 100% ownership UAE, Freezone consultancy Dubai, ADL Business Solutions",
+    canonical: "https://adlbusinesssolutions.com/freezone-company-setup",
+  };
+
+  const meta = seo ?? defaultMeta;
 
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    metadataBase: new URL("https://adlbusinesssolutions.com"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     alternates: {
-      canonical: seo.canonical,
+      canonical: meta.canonical,
     },
     openGraph: {
-      images: ["/assets/images/freezone/uae-freezone-business-setup-service.png"],
+      title: meta.title,
+      description: meta.description,
+      url: meta.canonical,
+      siteName: "ADL Business Solutions",
+      images: [
+        {
+          url: "/assets/images/freezone/uae-freezone-business-setup-service.png",
+          width: 1200,
+          height: 630,
+          alt: "ADL Business Solutions",
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [
+        "/assets/images/freezone/uae-freezone-business-setup-service.png",
+      ],
     },
   };
 }
@@ -58,9 +75,9 @@ export default async function Page() {
   const blogRes = await blogInnerPage("freezone");
   const blogData = blogRes?.data || [];
   const faqRes = await faqs("freezone")
-  const faqData =faqRes.data
+  const faqData = faqRes.data
 
-  
+
   return (
     <div>
       <Navbar />
@@ -72,7 +89,7 @@ export default async function Page() {
         buttonText={"Get a Free Consultation"}
         url={"/#schedule-meeting"}
       />
-      
+
       <AboutFreezoneDetails />
       <FreezoneInfoCard />
       <FreezoneProcessCubes />
@@ -90,8 +107,8 @@ export default async function Page() {
         buttonText={"Book a Free Consultation"}
         link={"/contact"}
       />
-{   faqData.length>0 &&   <FAQSection faqs={faqData} />
-}
+      {faqData.length > 0 && <FAQSection faqs={faqData} />
+      }
       {blogData.length > 0 && <SuggestedBlogs blogs={blogData} />}
 
       <Footer />

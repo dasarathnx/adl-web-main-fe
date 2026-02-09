@@ -26,29 +26,52 @@ import { getSeo } from "@/lib/api/apis";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-   const res = await fetch(
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=home`,
     { cache: "no-store" }
   );
 
   const data = await res.json();
   const seo = data?.data;
-  
 
-  if (!seo) {
-    return {
-      title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
-      description: "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",
-      keywords: "business setup services uae,business setup services dubai,company formation uae,company formation services uae,business setup consultants dubai,dubai business setup,uae company formation experts,start business in dubai,business setup support dubai,business consulting dubai",
-    };
-  }
+  const defaultMeta = {
+    title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
+    description:
+      "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",
+    keywords:
+      "business setup services uae,business setup services dubai,company formation uae,company formation services uae,business setup consultants dubai,dubai business setup,uae company formation experts,start business in dubai,business setup support dubai,business consulting dubai",
+  };
+
+  const meta = seo ?? defaultMeta;
 
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    metadataBase: new URL("https://adlbusinesssolutions.com"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     alternates: {
-      canonical: seo.canonical,
+      canonical: meta.canonical,
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: meta.canonical,
+      siteName: "ADL Business Solutions",
+      images: [
+        {
+          url: "/assets/images/about/modern-infrastructure.png",
+          width: 1200,
+          height: 630,
+          alt: "ADL Business Solutions",
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: ["/assets/images/about/modern-infrastructure.png"],
     },
   };
 }
@@ -76,7 +99,7 @@ export default function Home() {
       <FAQSection />
       <SubscribeSection />
       <Footer />
-    
+
     </div>
   );
 }

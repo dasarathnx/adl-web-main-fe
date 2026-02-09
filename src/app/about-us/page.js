@@ -15,39 +15,55 @@ import React from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-   const res = await fetch(
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=about`,
     { cache: "no-store" }
   );
 
   const data = await res.json();
   const seo = data?.data;
-console.log(seo);
 
-  if (!seo) {
-    return {
- title: 
- "About ADL Business Solutions | Dubai Company Formation Consultants ",
-  description:
-   
-  "Learn about ADL Business Solutions  trusted company formation consultants in Dubai helping entrepreneurs with business setup, licensing & support services. ",
-  keywords:
-    "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
-  canonical: "https://adlbusinesssolutions.com/about-us",
-  type: "article",
-  image: "/assets/images/about/global-business-hub.png",
-    };
-  }
+  const defaultMeta = {
+    title:
+      "About ADL Business Solutions | Dubai Company Formation Consultants",
+    description:
+      "Learn about ADL Business Solutions trusted company formation consultants in Dubai helping entrepreneurs with business setup, licensing & support services.",
+    keywords:
+      "best business setup consultants uae,business setup consultants dubai,company formation consultants uae,top business setup companies uae,business setup experts dubai,uae company formation advisors",
+    canonical: "https://adlbusinesssolutions.com/about-us",
+  };
+
+  const meta = seo ?? defaultMeta;
 
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    metadataBase: new URL("https://adlbusinesssolutions.com"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     alternates: {
-      canonical: seo.canonical,
+      canonical: meta.canonical,
     },
-      image: "/assets/images/about/global-business-hub.png",
-
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: meta.canonical,
+      siteName: "ADL Business Solutions",
+      images: [
+        {
+          url: "/assets/images/about/modern-infrastructure.png",
+          width: 1200,
+          height: 630,
+          alt: "ADL Business Solutions",
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: ["/assets/images/about/modern-infrastructure.png"],
+    },
   };
 }
 
@@ -55,13 +71,13 @@ const page = () => {
   return (
     <div>
       <Navbar />
-      <HeroSection 
-      title={"Business Setup Consultants in UAE"} 
-      decription={"ADL Business Solutions simplifies the entire process of company setup in Dubai and across the UAE — from trade licensing to operational compliance."} buttonText={"Get a Free Consultation"} url={"#schedule-meeting"} />
+      <HeroSection
+        title={"Business Setup Consultants in UAE"}
+        decription={"ADL Business Solutions simplifies the entire process of company setup in Dubai and across the UAE — from trade licensing to operational compliance."} buttonText={"Get a Free Consultation"} url={"#schedule-meeting"} />
       <InsightsSection />
       <AboutSection />
-      <AboutScheduleMeeting/>
-      <WhyUAEParallax/>
+      <AboutScheduleMeeting />
+      <WhyUAEParallax />
       <TeamSection />
       <WhyChooseSection />
       {/* <CTASection/> */}

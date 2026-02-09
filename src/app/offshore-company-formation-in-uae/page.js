@@ -12,7 +12,7 @@ import React from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-   const res = await fetch(
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=offshore`,
     { cache: "no-store" }
   );
@@ -20,27 +20,47 @@ export async function generateMetadata() {
   const data = await res.json();
   const seo = data?.data;
 
-  if (!seo) {
-    return {
-      title:
-        "Offshore Company Formation in UAE | Dubai, RAK & Ajman Offshore | ADL Business Solutions",
-      description:
-        "Set up your UAE offshore company with ADL Business Solutions. We provide fast & compliant offshore company formation in Dubai, RAK, and Ajman with bank account assistance, documentation, and full advisory. Start your tax-efficient global business today.",
-      keywords:
-        "UAE offshore company, Dubai offshore setup, RAK offshore company formation, Ajman offshore business setup, tax-free UAE company, offshore bank account UAE, business setup UAE, ADL Business Solutions",
-      canonical: "https://adlbusinesssolutions.com/offshore-company-formation-in-uae",
-      type: "article",
-      image: "/assets/images/offshore/offshore-company-formation.png",
-    }
-  }
-  return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
-    alternates: {
-      canonical: seo.canonical,
-      image: "/assets/images/offshore/offshore-company-formation.png",
+  const defaultMeta = {
+    title:
+      "Offshore Company Formation in UAE | Dubai, RAK & Ajman Offshore | ADL Business Solutions",
+    description:
+      "Set up your UAE offshore company with ADL Business Solutions. We provide fast & compliant offshore company formation in Dubai, RAK, and Ajman with bank account assistance, documentation, and full advisory. Start your tax-efficient global business today.",
+    keywords:
+      "UAE offshore company, Dubai offshore setup, RAK offshore company formation, Ajman offshore business setup, tax-free UAE company, offshore bank account UAE, business setup UAE, ADL Business Solutions",
+    canonical:
+      "https://adlbusinesssolutions.com/offshore-company-formation-in-uae",
+  };
 
+  const meta = seo ?? defaultMeta;
+
+  return {
+    metadataBase: new URL("https://adlbusinesssolutions.com"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
+    alternates: {
+      canonical: meta.canonical,
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: meta.canonical,
+      siteName: "ADL Business Solutions",
+      images: [
+        {
+          url: "/assets/images/offshore/offshore-company-formation.png",
+          width: 1200,
+          height: 630,
+          alt: "ADL Business Solutions",
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: ["/assets/images/offshore/offshore-company-formation.png"],
     },
   };
 }

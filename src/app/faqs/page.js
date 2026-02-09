@@ -12,33 +12,53 @@ import React from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=faqs`,
-    { cache: "no-store" }
-  );
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=faqs`,
+        { cache: "no-store" }
+    );
 
-  const data = await res.json();
-  const seo = data?.data;
+    const data = await res.json();
+    const seo = data?.data;
 
+    const defaultMeta = {
+        title: "Dubai Business Setup FAQs | ADL Business Solutions",
+        description:
+            "Find answers to the most common questions about business setup in Dubai. Learn about trade licenses, company formation, visa processing, bank accounts, and UAE legal requirements.",
+        keywords:
+            "Dubai business setup FAQs, UAE company formation questions, start business Dubai FAQ, trade license FAQ, ADL Business Solutions support",
+        canonical: "https://adlbusinesssolutions.com/faqs",
+    };
 
-    if (!seo) {
-        return {
-            title: "Dubai Business Setup FAQs | ADL Business Solutions",
-            description:
-                "Find answers to the most common questions about business setup in Dubai. Learn about trade licenses, company formation, visa processing, bank accounts, and UAE legal requirements.",
-            keywords:
-                "Dubai business setup FAQs, UAE company formation questions, start business Dubai FAQ, trade license FAQ, ADL Business Solutions support",
-            canonical: "https://adlbusinesssolutions.com/faqs",
-            type: "article",
-        }
-    }
+    const meta = seo ?? defaultMeta;
 
     return {
-        title: seo.title,
-        description: seo.description,
-        keywords: seo.keywords,
+        metadataBase: new URL("https://adlbusinesssolutions.com"),
+        title: meta.title,
+        description: meta.description,
+        keywords: meta.keywords,
         alternates: {
-            canonical: seo.canonical,
+            canonical: meta.canonical,
+        },
+        openGraph: {
+            title: meta.title,
+            description: meta.description,
+            url: meta.canonical,
+            siteName: "ADL Business Solutions",
+            images: [
+                {
+                    url: "/assets/images/about/modern-infrastructure.png",
+                    width: 1200,
+                    height: 630,
+                    alt: "ADL Business Solutions",
+                },
+            ],
+            type: "article",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: meta.title,
+            description: meta.description,
+            images: ["/assets/images/about/modern-infrastructure.png"],
         },
     };
 }

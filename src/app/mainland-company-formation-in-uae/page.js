@@ -14,7 +14,7 @@ import React from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 export async function generateMetadata() {
-   const res = await fetch(
+  const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=mainland`,
     { cache: "no-store" }
   );
@@ -22,28 +22,46 @@ export async function generateMetadata() {
   const data = await res.json();
   const seo = data?.data;
 
-  if (!seo) {
-    return {
- title:
-    "Mainland Company Formation in UAE | Dubai, Abu Dhabi & Sharjah Mainland Setup | ADL Business Solutions",
-  description:
-    "Start your UAE mainland business with ADL Business Solutions. We offer expert mainland company setup in Dubai, Abu Dhabi, and Sharjah with full licensing, visa, office, and bank account support. 100% ownership options available.",
-  keywords:
-    "UAE mainland license, Dubai mainland company setup, Abu Dhabi LLC formation, Sharjah business license, mainland business setup UAE, corporate services Dubai, ADL Business Solutions, Dubai business setup consultant",
-  canonical: "https://adlbusinesssolutions.com/mainland-company-formation-in-uae",
-  type: "article",
-  image: "/assets/images/mainland/mainland-company-formation.png", 
-    };
-  }
+  const defaultMeta = {
+    title:
+      "Mainland Company Formation in UAE | Dubai, Abu Dhabi & Sharjah Mainland Setup | ADL Business Solutions",
+    description:
+      "Start your UAE mainland business with ADL Business Solutions. We offer expert mainland company setup in Dubai, Abu Dhabi, and Sharjah with full licensing, visa, office, and bank account support. 100% ownership options available.",
+    keywords:
+      "UAE mainland license, Dubai mainland company setup, Abu Dhabi LLC formation, Sharjah business license, mainland business setup UAE, corporate services Dubai, ADL Business Solutions, Dubai business setup consultant",
+    canonical: "https://adlbusinesssolutions.com/mainland-company-formation-in-uae",
+  };
+
+  const meta = seo ?? defaultMeta;
 
   return {
-    title: seo.title,
-    description: seo.description,
-    keywords: seo.keywords,
+    metadataBase: new URL("https://adlbusinesssolutions.com"),
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.keywords,
     alternates: {
-      canonical: seo.canonical,
-        image: "/assets/images/mainland/mainland-company-formation.png", 
-
+      canonical: meta.canonical,
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: meta.canonical,
+      siteName: "ADL Business Solutions",
+      images: [
+        {
+          url: "/assets/images/mainland/mainland-company-formation.png",
+          width: 1200,
+          height: 630,
+          alt: "ADL Business Solutions",
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: ["/assets/images/mainland/mainland-company-formation.png"],
     },
   };
 }
@@ -61,7 +79,7 @@ const page = () => {
           "Start your UAE business with full access to the local market, 100% ownership options, visa quota, and corporate banking support. ADL Business Solutions makes your mainland setup simple, fast, and fully compliant."
         }
         buttonText={"Get a Free Consultation"}
-       url={"#schedule-meeting"}
+        url={"#schedule-meeting"}
       />
 
       <AboutMainland />
