@@ -13,9 +13,11 @@ import { getSeo } from "@/lib/api/apis";
 import React from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=mainland`,
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=mainland&t=${new Date().getTime()}`,
     { cache: "no-store" }
   );
 

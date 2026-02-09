@@ -18,21 +18,22 @@ import TeamSection from "@/Components/HomePage/TeamSection/TeamSection";
 import TestimonialSection from "@/Components/HomePage/Testimonial/Testimonial";
 import ValuesSection from "@/Components/HomePage/ValuesSection/ValuesSection";
 import VisaTypesSection from "@/Components/HomePage/VisaTypes/VisaTypesSection";
-import { buildSEO } from "./lib/seo";
-import { getSeo } from "@/lib/api/apis";
 
 
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=home`,
-    { cache: "no-store" }
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=home&t=${new Date().getTime()}`,
+    { cache: "no-store" } // Ensure no caching
   );
 
   const data = await res.json();
   const seo = data?.data;
+  console.log(seo)
 
   const defaultMeta = {
     title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
