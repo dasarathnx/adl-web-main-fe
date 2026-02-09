@@ -7,14 +7,17 @@ import ScheduleMeeting from "@/Components/HomePage/ScheduleMeeting/ScheduleMeeti
 import Navbar from "@/Components/Navbar/Navbar";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=contact`,
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=contact&t=${new Date().getTime()}`,
     { cache: "no-store" }
   );
 
   const data = await res.json();
   const seo = data?.data;
+  console.log(seo)
 
   const defaultMeta = {
     title: "Contact ADL Business Solutions | Company Setup in Dubai",

@@ -16,9 +16,11 @@ import { blogInnerPage, faqs, getSeo } from "@/lib/api/apis";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=freezone&innerPage=uae-freezone-business-setup`,
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=freezone&innerPage=uae-freezone-business-setup&t=${new Date().getTime()}`,
     { cache: "no-store" }
   );
 

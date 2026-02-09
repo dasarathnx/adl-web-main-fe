@@ -11,9 +11,11 @@ import WhychooseOffshore from "@/Components/OffshorePage/WhychooseOffshore";
 import React from "react";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=offshore`,
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=offshore&t=${new Date().getTime()}`,
     { cache: "no-store" }
   );
 

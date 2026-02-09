@@ -7,9 +7,11 @@ import Services from "@/Components/ServicePage/Services";
 import { getSeo } from "@/lib/api/apis";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 export async function generateMetadata() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=services&innerPage=Service Page`,
+    `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=services&innerPage=Service Page&t=${new Date().getTime()}`,
     { cache: "no-store" }
   );
 
