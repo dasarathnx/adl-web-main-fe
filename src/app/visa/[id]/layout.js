@@ -10,45 +10,88 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const visa = visaDetails.find(
-    v => String(v.id) === String(id)
-  );
+  const visa = visaDetails.find((v) => String(v.id) === String(id));
 
-  // ✅ SAFETY: visa not found
-  if (!visa) {
-    return {
-      title: "UAE Visa Services | ADL Business Solutions",
+  const defaultMeta = {
+    title: "UAE Visa Services | ADL Business Solutions",
+    description:
+      "Professional UAE visa services including employment, residency, and Golden Visa support.",
+  };
+
+  const safeDetails = visa
+    ? {
+      title: `${visa.title} | ADL Business Solutions`,
       description:
-        "Professional UAE visa services including employment, residency, and Golden Visa support.",
-    };
-  }
+        visa.description ||
+        "Fast and reliable UAE visa services. Work permit, medical, Emirates ID & residency stamping support.",
+    }
+    : defaultMeta;
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=visa&innerPage=${visa.id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=visa&innerPage=${id}`,
       { cache: "no-store" }
     );
 
     const data = await res.json();
     const seo = data?.data;
-    if (!seo) throw new Error("SEO not found");
+
+    const meta = seo ?? safeDetails;
 
     return {
-      title: seo.title,
-      description: seo.description,
-      keywords: seo.keywords,
+      metadataBase: new URL("https://adlbusinesssolutions.com"),
+      title: meta.title,
+      description: meta.description,
+      keywords: meta.keywords,
       alternates: {
-        canonical: seo.canonical,
+        canonical: meta.canonical,
+      },
+      openGraph: {
+        title: meta.title,
+        description: meta.description,
+        url: meta.canonical,
+        siteName: "ADL Business Solutions",
+        images: [
+          {
+            url: "/assets/images/about/modern-infrastructure.png",
+            width: 1200,
+            height: 630,
+            alt: "ADL Business Solutions",
+          },
+        ],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: meta.title,
+        description: meta.description,
+        images: ["/assets/images/about/modern-infrastructure.png"],
       },
     };
   } catch (error) {
-    // ✅ NORMAL CASE: SEO missing (404)
     return {
-      title: "UAE Employment Visa Processing | Work Visa UAE | ADL Business Solutions",
-      description:
-        "Fast and reliable UAE employment visa services. Work permit, medical, Emirates ID & residency stamping support.",
-      keywords:
-        "UAE work visa, Dubai employment visa, UAE labour visa, residency visa UAE",
+      metadataBase: new URL("https://adlbusinesssolutions.com"),
+      ...safeDetails,
+      openGraph: {
+        title: safeDetails.title,
+        description: safeDetails.description,
+        siteName: "ADL Business Solutions",
+        images: [
+          {
+            url: "/assets/images/about/modern-infrastructure.png",
+            width: 1200,
+            height: 630,
+            alt: "ADL Business Solutions",
+          },
+        ],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: safeDetails.title,
+        description: safeDetails.description,
+        images: ["/assets/images/about/modern-infrastructure.png"],
+      },
     };
   }
 }

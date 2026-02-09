@@ -29,7 +29,6 @@ export async function generateMetadata({ params }) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/blog/get-blog/${slug}`,
     { next: { revalidate: 60 } } // ISR
-
   );
 
   const blogRes = await res.json();
@@ -39,10 +38,12 @@ export async function generateMetadata({ params }) {
     return {
       title: "Blog Not Found",
       description: "This blog does not exist.",
+      metadataBase: new URL("https://adlbusinesssolutions.com"),
     };
   }
 
   return {
+    metadataBase: new URL("https://adlbusinesssolutions.com"),
     title: blog.metaTitle || blog.title,
     description: blog.metaDescription || blog.excerpt,
     keywords: blog.metaKeywords || "",
@@ -55,6 +56,7 @@ export async function generateMetadata({ params }) {
       title: blog.metaTitle || blog.title,
       description: blog.metaDescription || blog.excerpt,
       url: blog.canonical || `/blogs/${blog.url}`,
+      siteName: "ADL Business Solutions",
       images: [
         {
           url: blog.image,
@@ -64,6 +66,12 @@ export async function generateMetadata({ params }) {
         },
       ],
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.metaTitle || blog.title,
+      description: blog.metaDescription || blog.excerpt,
+      images: [blog.image],
     },
   };
 }

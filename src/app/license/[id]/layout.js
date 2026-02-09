@@ -10,44 +10,88 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const license = licenseDetails.find(
-    l => String(l.id) === String(id)
-  );
+  const license = licenseDetails.find((l) => String(l.id) === String(id));
 
-  // ✅ SAFETY: license not found
-  if (!license) {
-    return {
-      title: "Business License Services in UAE | ADL Business Solutions",
+  const defaultMeta = {
+    title: "Business License Services in UAE | ADL Business Solutions",
+    description:
+      "Professional business licensing services in UAE including commercial, professional, and industrial licenses.",
+  };
+
+  const safeDetails = license
+    ? {
+      title: `${license.licenseType} in UAE | ADL Business Solutions`,
       description:
-        "Professional business licensing services in UAE including commercial, professional, and industrial licenses.",
-    };
-  }
+        license.description ||
+        "Get expert assistance for UAE business license services with ADL Business Solutions.",
+    }
+    : defaultMeta;
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=license&innerPage=${license.id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=license&innerPage=${id}`,
       { cache: "no-store" }
     );
 
     const data = await res.json();
     const seo = data?.data;
-    if (!seo) throw new Error("SEO not found");
+
+    const meta = seo ?? safeDetails;
 
     return {
-      title: seo.title,
-      description: seo.description,
-      keywords: seo.keywords,
+      metadataBase: new URL("https://adlbusinesssolutions.com"),
+      title: meta.title,
+      description: meta.description,
+      keywords: meta.keywords,
       alternates: {
-        canonical: seo.canonical,
+        canonical: meta.canonical,
+      },
+      openGraph: {
+        title: meta.title,
+        description: meta.description,
+        url: meta.canonical,
+        siteName: "ADL Business Solutions",
+        images: [
+          {
+            url: "/assets/images/about/modern-infrastructure.png",
+            width: 1200,
+            height: 630,
+            alt: "ADL Business Solutions",
+          },
+        ],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: meta.title,
+        description: meta.description,
+        images: ["/assets/images/about/modern-infrastructure.png"],
       },
     };
   } catch {
-    // ✅ NORMAL FALLBACK (NO BUILD FAILURE)
     return {
-      title: `${license.licenseType} in UAE | ADL Business Solutions`,
-      description:
-        license.description ||
-        "Get expert assistance for UAE business license services with ADL Business Solutions.",
+      metadataBase: new URL("https://adlbusinesssolutions.com"),
+      ...safeDetails,
+      openGraph: {
+        title: safeDetails.title,
+        description: safeDetails.description,
+        siteName: "ADL Business Solutions",
+        images: [
+          {
+            url: "/assets/images/about/modern-infrastructure.png",
+            width: 1200,
+            height: 630,
+            alt: "ADL Business Solutions",
+          },
+        ],
+        type: "article",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: safeDetails.title,
+        description: safeDetails.description,
+        images: ["/assets/images/about/modern-infrastructure.png"],
+      },
     };
   }
 }
