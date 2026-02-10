@@ -6,7 +6,6 @@ export async function generateMetadata() {
     `${process.env.NEXT_PUBLIC_API_URL}/seo/get-seo?page=blog`,
     { cache: "no-store" }
   );
-console.log(seo)
 
   const data = await res.json();
   const seo = data?.data;
