@@ -12,11 +12,14 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   const visa = visaDetails.find((v) => String(v.id) === String(id));
 
-  const defaultMeta = {
-    title: "UAE Visa Services | ADL Business Solutions",
-    description:
-      "Professional UAE visa services including employment, residency, and Golden Visa support.",
-  };
+const defaultMeta = {
+  title: "UAE Visa Services | ADL Business Solutions",
+  description:
+    "Professional UAE visa services including employment, residency, and Golden Visa support.",
+  keywords:
+    "UAE visa services, Dubai visa, UAE residency visa, employment visa UAE, Golden Visa UAE, investor visa UAE, family visa UAE, business visa UAE, ADL Business Solutions",
+};
+
 
   const safeDetails = visa
     ? {
@@ -37,7 +40,7 @@ export async function generateMetadata({ params }) {
     const seo = data?.data;
 
     const meta = seo ?? safeDetails;
-
+    
     return {
       metadataBase: new URL("https://adlbusinesssolutions.com"),
       title: meta.title,

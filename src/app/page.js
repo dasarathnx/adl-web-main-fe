@@ -33,7 +33,7 @@ export async function generateMetadata() {
 
   const data = await res.json();
   const seo = data?.data;
-  console.log(seo)
+  
 
   const defaultMeta = {
     title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
@@ -41,6 +41,7 @@ export async function generateMetadata() {
       "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",
     keywords:
       "business setup services uae,business setup services dubai,company formation uae,company formation services uae,business setup consultants dubai,dubai business setup,uae company formation experts,start business in dubai,business setup support dubai,business consulting dubai",
+    canonical: "https://adlbusinesssolutions.com",
   };
 
   const meta = seo ?? defaultMeta;
