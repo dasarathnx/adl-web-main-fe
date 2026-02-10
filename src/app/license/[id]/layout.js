@@ -16,6 +16,9 @@ export async function generateMetadata({ params }) {
     title: "Business License Services in UAE | ADL Business Solutions",
     description:
       "Professional business licensing services in UAE including commercial, professional, and industrial licenses.",
+    keywords:
+      "business license services uae, business license services dubai, company formation uae, company formation services uae, business setup consultants dubai, dubai business setup, uae company formation experts, start business in dubai, business setup support dubai, business consulting dubai",
+    canonical: "https://adlbusinesssolutions.com",
   };
 
   const safeDetails = license

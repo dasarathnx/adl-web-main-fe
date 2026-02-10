@@ -17,7 +17,7 @@ export async function generateMetadata() {
 
   const data = await res.json();
   const seo = data?.data;
-  console.log(seo)
+ 
 
   const defaultMeta = {
     title: "Gallery | ADL Business Solutions | Our Work & Achievements",
