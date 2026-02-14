@@ -36,7 +36,7 @@ export async function generateMetadata() {
   
 
   const defaultMeta = {
-    title: "Business Setup Services in UAE | ADL Business Solutions | #UAE",
+    title: "Business Setup Services in UAE | ADL Business Solutions | UAE",
     description:
       "Professional business setup services in UAE by ADL Business Solutions. Expert support for company formation, licensing, visas, and PRO services.",
     keywords:
