@@ -1,7 +1,7 @@
 import BusinessGuideSection from "@/Components/BlogDetailPage/BusinessGuideSection";
 import Footer from "@/Components/Footer/Footer";
 import Navbar from "@/Components/Navbar/Navbar";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 // ✅ 1. BUILD TIME: Generate all static blog pages
@@ -89,10 +89,8 @@ export default async function Page({ params }) {
 
   const blog = await res.json();
 
-  if (!blog?.data?.length) {
-    console.log(blog.data.length);
-    
-    redirect("/blogs");
+  if (!blog?.data?.length) {    
+  notFound();
 
   }
 
