@@ -35,13 +35,13 @@ export async function generateMetadata({ params }) {
   const blogRes = await res.json();
   const blog = blogRes?.data?.[0];
 
-  if (!blog) {
-    return {
-      title: "Blog Not Found",
-      description: "This blog does not exist.",
-      metadataBase: new URL("https://adlbusinesssolutions.com"),
-    };
-  }
+  // if (!blog) {
+  //   return {
+  //     title: "Blog Not Found",
+  //     description: "This blog does not exist.",
+  //     metadataBase: new URL("https://adlbusinesssolutions.com"),
+  //   };
+  // }
 
   return {
     metadataBase: new URL("https://adlbusinesssolutions.com"),
@@ -90,7 +90,10 @@ export default async function Page({ params }) {
   const blog = await res.json();
 
   if (!blog?.data?.length) {
-redirect("/blogs");
+    console.log(blog.data.length);
+    
+    redirect("/blogs");
+
   }
 
   const blogData = blog.data[0];
