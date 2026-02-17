@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Let real files load normally
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise pass request to Next.js server
+RewriteRule ^(.*)$ https://www.adlbusinesssolutions.com/$1 [P,L]
