@@ -15,16 +15,16 @@ import Navbar from "@/Components/Navbar/Navbar";
 import { freezoneDetails } from "@/Datas/freezoneDetails";
 import { getFreezonePackages } from "@/lib/api/apis";
 import { object } from "framer-motion/client";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function page() {
   const params = useParams()
- const freezone = freezoneDetails.find(
+  const freezone = freezoneDetails.find(
     item => String(item.id) === String(params?.id)
   );
-    const [packages, setPackages] = useState([])
-  
+  const [packages, setPackages] = useState([])
+
   useEffect(() => {
     if (!params?.id) return;
 
@@ -41,7 +41,10 @@ export default function page() {
 
     fetchPackage();
   }, [params?.id]); // 
-  if (!freezone) return null;
+  if (!freezone) {
+    notFound();
+    return null;
+  }
 
   return (
     <div>
