@@ -89,11 +89,11 @@ export default function Blogs() {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {currentBlogs.map((blog) => (
-                  <Link
-                    key={blog.id}
-                    href={`/blogs/${blog.url}`}
-                    className="glass-bg rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
-                  >
+                    <Link
+                      key={blog.id}
+                      href={`/blogs/${blog.url.replace(/^\/+/, "").replace(/^blog\//, "")}`}
+                      className="glass-bg rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+                    >
                     <div className="relative w-full h-40 md:h-56">
                       <Image
                         src={blog.image}
@@ -227,7 +227,7 @@ export default function Blogs() {
                           className="flex items-center gap-3 hover:text-blue-400 transition cursor-pointer"
                         >
                           <Link
-                            href={`/blogs/${post.url}`}
+                            href={`/blogs/${post.url.replace(/^\/+/, "").replace(/^blog\//, "")}`}
                             className="flex items-center gap-3"
                           >
                             <div className="relative w-16 h-12 rounded-md overflow-hidden">

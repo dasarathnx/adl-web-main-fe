@@ -34,12 +34,19 @@ export default async function sitemap() {
 
   /* ---------------- BLOGS (DYNAMIC) ---------------- */
   const blogs = (await blogsList()) || [];
-  const blogPages = blogs.map(blog => ({
-    url: `${baseUrl}/blogs/${blog.url}`,
-    lastModified: new Date(blog.updatedAt || Date.now()),
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  const blogPages = blogs.map(blog => {
+    // Sanitize URL: Remove leading slash and /blog/ prefix if present
+    const cleanUrl = blog.url
+      .replace(/^\/+/, "") // Remove leading slashes
+      .replace(/^blog\//, ""); // Remove 'blog/' prefix
+
+    return {
+      url: `${baseUrl}/blogs/${cleanUrl}`,
+      lastModified: new Date(blog.updatedAt || Date.now()),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    };
+  });
 
   /* ---------------- SERVICES (DATA FILE) ---------------- */
   const servicePages = (serviceDetails || []).map(service => ({

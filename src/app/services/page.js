@@ -36,12 +36,12 @@ export async function generateMetadata() {
     description: meta.description,
     keywords: meta.keywords,
     alternates: {
-      canonical: meta.canonical,
+      canonical: meta.canonical || "https://adlbusinesssolutions.com/services",
     },
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: meta.canonical,
+      url: meta.canonical || "https://adlbusinesssolutions.com/services",
       siteName: "ADL Business Solutions",
       images: [
         {

@@ -40,12 +40,12 @@ export async function generateMetadata({ params }) {
       description: meta.description,
       keywords: meta.keywords,
       alternates: {
-        canonical: meta.canonical,
+        canonical: meta.canonical || `https://adlbusinesssolutions.com/services/${id}`,
       },
       openGraph: {
         title: meta.title,
         description: meta.description,
-        url: meta.canonical,
+        url: meta.canonical || `https://adlbusinesssolutions.com/services/${id}`,
         siteName: "ADL Business Solutions",
         images: [
           {
@@ -68,9 +68,13 @@ export async function generateMetadata({ params }) {
     return {
       metadataBase: new URL("https://adlbusinesssolutions.com"),
       ...defaultMeta,
+      alternates: {
+        canonical: `https://adlbusinesssolutions.com/services/${id}`,
+      },
       openGraph: {
         title: defaultMeta.title,
         description: defaultMeta.description,
+        url: `https://adlbusinesssolutions.com/services/${id}`,
         siteName: "ADL Business Solutions",
         images: [
           {
